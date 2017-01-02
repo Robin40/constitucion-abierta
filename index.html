@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout fun test</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script
+            src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css" integrity="sha256-9mfj77orHLh2GsN7CbMvpjO/Wny/ZZhR7Pu7hy0Yig4=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js" integrity="sha256-RS5bDpN9YmmUIdtdu8ESPjNp1Bg/Fqu90PwN3uawdSQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/build/heatmap.min.js" integrity="sha384-BlRWQS67hrnZlggSB+aRUTIWyxdjmsWxRnta6UvociBjKrx7/QuODVy7TJ0ov3Pi" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/plugins/leaflet-heatmap/leaflet-heatmap.js" integrity="sha384-ESukGjjBJ6nEQRjf11255R+aoFfSlMijWjZSVjfT6fZUDTVrpgFxxXl0lV9znWOJ" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.23.0/ramda.min.js" integrity="sha256-mt1UGc/VNqNBxZWrdgAnSgl33zLTGWQv+7pxe1nG6CU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js" integrity="sha384-LRcQ1rF33N7nWgsOpcH+PeQkyDX3RBvyUJTYNXs6OMMYh/aFwhq7Ly8BQ99U0oaC" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/test.css">
+    <script src="js/vis.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/test.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="map-widget">
+        <h2>Mapa</h2>
+        <div id="map-visualization-mode-widget"></div>
+        <div id="map"></div>
+    </div>
+    <div id="concepts-widget">
+        <div id="top-concepts">
+            <h2>Nube de palabras</h2>
+            <div class="img-box">
+                <img src="http://www.busitelce.com/images/visual/big-data-word-cloud/word-cloud-big-data-4.jpg">
+            </div>
+        </div>
+        <div id="concept-search">
+            <h2>Búsqueda por concepto</h2>
+            <form action="javascript:void(0)">
+                <label>
+                    <input type="text" name="concept" id="concept" value="">
+                </label>
+                <input type="submit" value="Visualizar">
+            </form>
+            <p class="attribute">Número de ubicaciones:</p>
+            <p id="num-ubicaciones" class="value"></p>
+        </div>
+    </div>
+    <div id="footer">
+        <p>Constitución Abierta</p>
+    </div>
+</div>
+</body>
+</html>

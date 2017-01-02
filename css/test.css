@@ -1,0 +1,62 @@
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+p, h1, h2 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#map-widget {
+    position: absolute;
+    top: 0px;
+    width: 30vw;
+    height: 80vh;
+}
+
+#map-widget h2 {
+    display: inline-block;
+}
+
+#map-visualization-mode-widget {
+    position: relative;
+    display: inline-block;
+}
+
+#map {
+    width: inherit;
+    height: inherit;
+}
+
+#concepts-widget {
+    position: relative;
+    left: 30vw;
+    width: 70vw;
+}
+
+#top-concepts .img-box {
+    height: 50vh;
+}
+
+#concept-search {
+
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.attribute {
+    display: inline-block;
+    font-weight: bolder;
+}
+
+.percentage {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.value {
+    display: inline-block;
+}
