@@ -9,7 +9,9 @@ function boolean_heatmap(locations) {
 }
 
 function mapbox_layer() {
-	return L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+    const tiles = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
+    //const tiles = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+	return L.tileLayer(tiles, {
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -18,7 +20,7 @@ function mapbox_layer() {
     });
 }
 
-function boolean_heatmap_layer() {
+function empty_boolean_heatmap_layer() {
 	const cfg = {
         radius: 16,
         maxOpacity: .5,
@@ -34,7 +36,7 @@ function boolean_heatmap_layer() {
 
 function init_boolean_heatmap(location, zoom, divId) {
 	const map = L.map(divId).setView(location, zoom);
-    const heatmapLayer = boolean_heatmap_layer();
+    const heatmapLayer = empty_boolean_heatmap_layer();
 
     map.addLayer(mapbox_layer())
         .addLayer(heatmapLayer);
@@ -48,4 +50,41 @@ function show_boolean_heatmap(heatmapLayer, heatmap) {
 		data: heatmap.points
 	};
 	heatmapLayer.setData(data);
+}
+
+function boolean_heatmap_layer(locations) {
+    const heatmapLayer = empty_boolean_heatmap_layer();
+    const data = {
+        max: Infinity,
+        data: R.map(R.assoc('intensity', 1), locations)
+    };
+    heatmapLayer.setData(data);
+    return heatmapLayer;
+}
+
+function markers_layer(locations) {
+    const markersLayer = L.markerClusterGroup();
+    $.each(locations, (_, location) => {
+        const marker = L.marker(location);
+        markersLayer.addLayer(marker);
+    });
+    return markersLayer;
+}
+
+function colorpleth_layer(locations) {
+    alert('No está implementado, se mostrará un heatmap');
+    return boolean_heatmap_layer(locations);
+}
+
+function init_map(location, zoom, divId) {
+    return L.map(divId).setView(location, zoom)
+        .addLayer(mapbox_layer());
+}
+
+function show_overlay(overlay, map) {
+    if (map.$overlay != null)
+        map.removeLayer(map.$overlay);
+
+    map.addLayer(overlay)
+        .$overlay = overlay;
 }

@@ -20,6 +20,10 @@
     <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/build/heatmap.min.js" integrity="sha384-BlRWQS67hrnZlggSB+aRUTIWyxdjmsWxRnta6UvociBjKrx7/QuODVy7TJ0ov3Pi" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/plugins/leaflet-heatmap/leaflet-heatmap.js" integrity="sha384-ESukGjjBJ6nEQRjf11255R+aoFfSlMijWjZSVjfT6fZUDTVrpgFxxXl0lV9znWOJ" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="dist/MarkerCluster.Default.css" />
+    <script src="dist/leaflet.markercluster-src.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.23.0/ramda.min.js" integrity="sha256-mt1UGc/VNqNBxZWrdgAnSgl33zLTGWQv+7pxe1nG6CU=" crossorigin="anonymous"></script>
 
     <script src="https://cdn.plot.ly/plotly-1.2.0.min.js" integrity="sha384-LRcQ1rF33N7nWgsOpcH+PeQkyDX3RBvyUJTYNXs6OMMYh/aFwhq7Ly8BQ99U0oaC" crossorigin="anonymous"></script>
@@ -33,14 +37,14 @@
 <div id="content">
     <div id="map-widget">
         <h2>Mapa</h2>
-        <div id="map-visualization-mode-widget"></div>
+        <div id="map-vis-mode-widget"></div>
         <div id="map"></div>
     </div>
     <div id="concepts-widget">
         <div id="top-concepts">
             <h2>Nube de palabras</h2>
             <div class="img-box">
-                <img src="http://www.busitelce.com/images/visual/big-data-word-cloud/word-cloud-big-data-4.jpg">
+                <img src="img/word-cloud-big-data-4.jpg">
             </div>
         </div>
         <div id="concept-search">
