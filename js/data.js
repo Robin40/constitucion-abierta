@@ -4,6 +4,11 @@ function csv(file) {
 			error ? reject(error) : resolve(json)));
 }
 
+function json(file) {
+	return new Promise((resolve, reject) =>
+		$.getJSON(file).done(resolve).fail(reject));
+}
+
 const is_perez_null = x => x === '\\N';
 const clean_perez_null = x => is_perez_null(x) ? null : +x;
 

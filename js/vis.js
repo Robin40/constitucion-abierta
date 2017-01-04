@@ -59,7 +59,7 @@ function boolean_heatmap_layer(locations) {
         data: R.map(R.assoc('intensity', 1), locations)
     };
     heatmapLayer.setData(data);
-    return heatmapLayer;
+    return Promise.resolve(heatmapLayer);
 }
 
 function markers_layer(locations) {
@@ -68,12 +68,50 @@ function markers_layer(locations) {
         const marker = L.marker(location);
         markersLayer.addLayer(marker);
     });
-    return markersLayer;
+    return Promise.resolve(markersLayer);
 }
-
+/*
 function colorpleth_layer(locations) {
     alert('No está implementado, se mostrará un heatmap');
     return boolean_heatmap_layer(locations);
+}
+*/
+
+/* based on http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + (b << 0))
+        .toString(16).slice(1);
+}
+
+const aThird = 1/3;
+const twoThirds = 2/3;
+
+function blue_red(intensity) {
+    return intensity < aThird ? rgbToHex(0, 0, intensity*3*255)
+        : intensity < twoThirds ? rgbToHex((intensity - aThird)*3*255, 0, 255)
+        : rgbToHex(255, 0, (1 - intensity)*3*255);
+}
+
+const communes_geojson = json('santiagoComunas.GeoJson');
+
+function choropleth_layer(locations) {
+    const countOf = R.countBy(d => d.commune || d.nombre, locations);
+    const max = R.reduce(R.max, -Infinity, Object.values(countOf));
+
+    return communes_geojson.then(communes =>
+        L.geoJSON(communes, {
+            style: feature => {
+                const commune = feature.properties.name;
+                const intensity = countOf[commune]/max || 0;
+                const color = blue_red(intensity);
+                return {color: '#404040', fillColor: color, fillOpacity: 0.6};
+            },
+            onEachFeature: (feature, layer) => {
+                const commune = feature.properties.name;
+                layer.bindPopup(`${commune} (${countOf[commune] || 0})`);
+            }
+        })
+    );
 }
 
 function init_map(location, zoom, divId) {

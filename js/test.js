@@ -1,15 +1,12 @@
 function update_vis($switch, map) {
     const concept = $('#concept').val();
-    /*
-    concept_heatmap(concept).then(heatmap => {
-        show_boolean_heatmap(heatmapLayer, heatmap);
-        $('#num-ubicaciones').text(heatmap.points.length);
-    });
-    */
+
     concept_locations(concept).then(locations => {
-        const get_layer = window[$switch.val()];
-        show_overlay(get_layer(locations), map);
         $('#num-ubicaciones').text(locations.length);
+        const get_layer = window[$switch.val()];
+        get_layer(locations).then(layer => {
+            show_overlay(layer, map);
+        });
     });
 }
 
@@ -18,7 +15,7 @@ function init_switch(map, mapId, divId) {
     $(`#${divId}`).html(`<select name="vis-mode" id="${switchId}">` +
         '<option value="boolean_heatmap_layer">Mapa de calor</option>' +
         '<option value="markers_layer">Clusters de marcadores</option>' +
-        '<option value="colorpleth_layer">Intensidad por comuna</option>' +
+        '<option value="choropleth_layer">Intensidad por comuna</option>' +
         '</select>');
     
     const $switch = $(`#${switchId}`);
