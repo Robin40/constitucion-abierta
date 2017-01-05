@@ -10,7 +10,7 @@ p, h1, h2 {
 #map-widget {
     position: absolute;
     top: 0px;
-    width: 30vw;
+    width: 50vw;
     height: 80vh;
 }
 
@@ -30,7 +30,7 @@ p, h1, h2 {
 
 #concepts-widget {
     position: relative;
-    left: 30vw;
+    left: 50vw;
     width: 70vw;
 }
 

@@ -92,8 +92,14 @@ function blue_red(intensity) {
         : rgbToHex(255, 0, (1 - intensity)*3*255);
 }
 
-const communes_geojson = json('santiagoComunas.GeoJson');
+const lerp = (from, to, t) => from + (to - from)*t;
 
+const blue_blue = chroma.scale(['#a0ffff', '#0000a0']).mode('hsv');
+const white_black = chroma.scale(['#ffffff', '#000000']);
+const white_blue = chroma.scale(['#ffffff', '#0000a0']);
+
+const communes_geojson = json('santiagoComunas.GeoJson');
+/*
 function choropleth_layer(locations) {
     const countOf = R.countBy(d => d.commune || d.nombre, locations);
     const max = R.reduce(R.max, -Infinity, Object.values(countOf));
@@ -103,8 +109,14 @@ function choropleth_layer(locations) {
             style: feature => {
                 const commune = feature.properties.name;
                 const intensity = countOf[commune]/max || 0;
-                const color = blue_red(intensity);
-                return {color: '#404040', fillColor: color, fillOpacity: 0.6};
+                const rounded = Math.round(intensity*6)/6;
+                const color = white_blue(rounded).hex();
+                const alpha = .7; //lerp(.4, 1, intensity);
+                return {
+                    color: '#404040',
+                    fillColor: color,
+                    fillOpacity: alpha
+                };
             },
             onEachFeature: (feature, layer) => {
                 const commune = feature.properties.name;
@@ -112,6 +124,70 @@ function choropleth_layer(locations) {
             }
         })
     );
+}
+*/
+
+function medians(parts, sortedArray) {
+    const n = sortedArray.length;
+    return R.range(1, parts).map(i => sortedArray[(n/parts*i) | 0]);
+}
+
+function bs_last(pred, sortedArray) {
+    let l = -1, r = sortedArray.length - 1;
+    while (l !== r) {
+        let m = (l + r + 1)>>1;
+        if (m === -1 || pred(sortedArray[m], m, sortedArray))
+            l = m;
+        else
+            r = m - 1;
+    }
+    return r;
+}
+
+function choropleth_layer(locations) {
+    const parts = 7;
+
+    const countOf = R.countBy(d => d.commune || d.nombre, locations);
+    const populationOf = R.mapObjIndexed((_, commune) =>
+        data.commune(commune).then(d => d.poblacion), countOf);
+
+    return Promise.props(populationOf).then(populationOf => {
+        const densityOf = R.mapObjIndexed((_, commune) =>
+            countOf[commune]/populationOf[commune] || 0, countOf);
+        console.log(densityOf);
+        const densities = Object.values(densityOf);
+        //const max = R.reduce(R.max, 0, densities);
+        const sortedDensities = R.sort(R.substract, densities);
+        const densityMedians = medians(parts, sortedDensities);
+        console.log('densityMedians', densityMedians);
+
+        return communes_geojson.then(communes =>
+            L.geoJSON(communes, {
+                style: feature => {
+                    const commune = feature.properties.name;
+                    //const intensity = densityOf[commune]/max || 0;
+                    //const rounded = Math.ceil(intensity*(parts-1)/(parts-1));
+                    const part = bs_last(m =>
+                        m <= densityOf[commune], densityMedians);
+                    const intensity = part/(parts - 1);
+                    const color = white_blue(intensity).hex();
+                    const alpha = .7; //lerp(.4, 1, intensity);
+                    return {
+                        color: '#404040',
+                        fillColor: color,
+                        fillOpacity: alpha
+                    };
+                },
+                onEachFeature: (feature, layer) => {
+                    const commune = feature.properties.name;
+                    layer.bindPopup(`${commune}<br>
+                        <b>Núm. ubicaciones</b>: ${countOf[commune] || 0}<br>
+                        <b>Población total</b>: ${populationOf[commune]}`)
+                    .on('mouseover', e => layer.openPopup());
+                }
+            })
+        );
+    });
 }
 
 function init_map(location, zoom, divId) {
