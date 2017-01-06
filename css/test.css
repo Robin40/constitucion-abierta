@@ -3,18 +3,27 @@
     max-height: 100%;
 }
 
-p, h1, h2 {
+p, h1, h2, div {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-#map-widget {
+#content {
     position: absolute;
-    top: 0px;
-    width: 50vw;
+}
+
+#map-chile-widget {
+    position: absolute;
+    width: 20vh;
     height: 80vh;
 }
 
-#map-widget h2 {
+#map-widget {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-widget h2 {
     display: inline-block;
 }
 
@@ -23,15 +32,15 @@ p, h1, h2 {
     display: inline-block;
 }
 
-#map {
+.map {
     width: inherit;
     height: inherit;
 }
 
 #concepts-widget {
-    position: relative;
-    left: 50vw;
-    width: 70vw;
+    position: absolute;
+    left: 20vh;
+    width: calc(100vw - 20vh - 2vh);
 }
 
 #top-concepts .img-box {
@@ -42,6 +51,41 @@ p, h1, h2 {
 
 }
 
+#fundaments-location {
+    float: left;
+}
+
+@media all and (orientation:portrait) {
+    #fundament-list {
+        overflow: auto;
+        height: 20vh;
+    }
+}
+
+@media all and (orientation:landscape) {
+    #map-widget {
+        position: absolute;
+        width: calc((100vw - 20vh)/2 - 2vw);
+    }
+
+    #fundaments-widget {
+        overflow: auto;
+        position: relative;
+        /*left: calc((100vh - 20vh)/2);*/
+        left: 50%;
+        width: 50%;
+    }
+}
+
+#title {
+    display: inline-block;
+}
+
+#nav form {
+    display: inline-block;
+    float: right;
+}
+
 #footer {
     position: fixed;
     bottom: 0;
@@ -49,14 +93,16 @@ p, h1, h2 {
 
 .attribute {
     display: inline-block;
-    font-weight: bolder;
 }
 
 .percentage {
     display: inline-block;
-    font-weight: bold;
 }
 
 .value {
     display: inline-block;
+}
+
+.ui-autocomplete {
+    z-index: 9999 !important;
 }

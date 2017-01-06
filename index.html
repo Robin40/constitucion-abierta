@@ -38,33 +38,50 @@
     <script src="js/test.js"></script>
 </head>
 <body>
+<div id="nav">
+    <div id="title">Constitución Abierta</div>
+    <form action="javascript:void(0)">
+        <button id="help">Instrucciones</button>
+        <button id="about-us">Quiénes somos</button>
+    </form>
+</div>
+
 <div id="content">
-    <div id="map-widget">
-        <h2>Mapa</h2>
-        <div id="map-vis-mode-widget"></div>
-        <div id="map"></div>
+    <div id="map-chile-widget" class="map-widget">
+        <h2>Chile</h2>
+        <div id="map-chile" class="map"></div>
     </div>
     <div id="concepts-widget">
-        <div id="top-concepts">
-            <h2>Nube de palabras</h2>
-            <div class="img-box">
-                <img src="img/word-cloud-big-data-4.jpg">
-            </div>
-        </div>
         <div id="concept-search">
             <h2>Búsqueda por concepto</h2>
-            <form action="javascript:void(0)">
+            <form id="concept-form" action="javascript:void(0)">
                 <label>
                     <input type="text" name="concept" id="concept" value="">
                 </label>
                 <input type="submit" value="Visualizar">
+                <button id="examples">Ejemplos</button>
             </form>
-            <p class="attribute">Número de ubicaciones:</p>
-            <p id="num-ubicaciones" class="value"></p>
+            <div class="attribute">Número de ubicaciones:</div>
+            <div id="num-ubicaciones" class="value"></div>
         </div>
-    </div>
-    <div id="footer">
-        <p>Constitución Abierta</p>
+        <div id="map-widget" class="map-widget">
+            <div>
+                <h2>Mapa</h2>
+                <div id="map-vis-mode-widget"></div>
+            </div>
+            <div id="map" class="map"></div>
+        </div>
+        <div id="fundaments-widget">
+            <h2>Fundamentos</h2>
+            <div id="fundament-list">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
     </div>
 </div>
 </body>
