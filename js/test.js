@@ -9,9 +9,9 @@ function update_map(get_layer, map) {
     });
 }
 
-function update_vis($switch, mapChile, map) {
+function update_vis(mapChile, map) {
     update_map(boolean_heatmap_layer, mapChile);
-    update_map(window[$switch.val()], map);
+    update_map(choropleth_layer, map);
 }
 
 function init_switch(mapChile, map, mapId, divId) {
@@ -24,7 +24,7 @@ function init_switch(mapChile, map, mapId, divId) {
     
     const $switch = $(`#${switchId}`);
     $switch.on('change', function() {
-        update_vis($switch, mapChile, map);
+        update_vis(mapChile, map);
     });
 
     return $switch;
@@ -39,11 +39,11 @@ $(function () {
     //const heatmapLayer = init_boolean_heatmap(santiago, 6, 'map');
     const mapChile = init_map(chile, 4, 'map-chile');
     const map = init_map(vitacura, 10, 'map');
-    const $switch = init_switch(mapChile, map, 'map', 'map-vis-mode-widget');
+    //const $switch = init_switch(mapChile, map, 'map', 'map-vis-mode-widget');
 
     /* visualize */
     $('#concept-search').on('submit', function() {
-        update_vis($switch, mapChile, map);
+        update_vis(mapChile, map);
     });
 
     /* autocomplete */

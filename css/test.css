@@ -14,11 +14,11 @@ p, h1, h2, div {
 #map-chile-widget {
     position: absolute;
     width: 20vh;
-    height: 80vh;
+    height: 90vh;
 }
 
 #map-widget {
-    height: 50vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
 }
@@ -39,8 +39,8 @@ p, h1, h2, div {
 
 #concepts-widget {
     position: absolute;
-    left: 20vh;
-    width: calc(100vw - 20vh - 2vh);
+    left: calc(20vh + 1vw);
+    width: calc(100vw - 20vh - 3vw);
 }
 
 #top-concepts .img-box {
@@ -55,27 +55,32 @@ p, h1, h2, div {
     float: left;
 }
 
+#fundament-list {
+    overflow: auto;
+}
+
+/*
 @media all and (orientation:portrait) {
     #fundament-list {
         overflow: auto;
-        height: 20vh;
     }
 }
+*/
 
-@media all and (orientation:landscape) {
+/*@media all and (orientation:landscape) {
     #map-widget {
         position: absolute;
-        width: calc((100vw - 20vh)/2 - 2vw);
+        width: calc((100vw - 20vh - 1vw)/2 - 2vw);
     }
 
     #fundaments-widget {
         overflow: auto;
         position: relative;
-        /*left: calc((100vh - 20vh)/2);*/
+        /*left: calc((100vh - 20vh)/2);
         left: 50%;
         width: 50%;
     }
-}
+}*/
 
 #title {
     display: inline-block;
