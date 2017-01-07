@@ -9,6 +9,18 @@ function json(file) {
 		$.getJSON(file).done(resolve).fail(reject));
 }
 
+function zipped_json(file) {
+	//return new JSZip().file(file).async('string').then(JSON.parse);
+	return new JSZip.external.Promise((resolve, reject) =>
+		JSZipUtils.getBinaryContent(file, (err, data) =>
+			err ? reject(err) : resolve(data)))
+	.then(JSZip.loadAsync).then(zip => {
+		const innerFile = Object.values(zip.files)[0].name;
+		console.log('innerFile', innerFile);
+		return zip.file(innerFile).async('string').then(JSON.parse);
+	});
+}
+
 const is_perez_null = x => x === '\\N';
 const clean_perez_null = x => is_perez_null(x) ? null : +x;
 

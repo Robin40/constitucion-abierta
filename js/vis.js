@@ -98,34 +98,8 @@ const blue_blue = chroma.scale(['#a0ffff', '#0000a0']).mode('hsv');
 const white_black = chroma.scale(['#ffffff', '#000000']);
 const white_blue = chroma.scale(['#ffffff', '#0000a0']);
 
-const communes_geojson = json('santiagoComunas.GeoJson');
-/*
-function choropleth_layer(locations) {
-    const countOf = R.countBy(d => d.commune || d.nombre, locations);
-    const max = R.reduce(R.max, -Infinity, Object.values(countOf));
-
-    return communes_geojson.then(communes =>
-        L.geoJSON(communes, {
-            style: feature => {
-                const commune = feature.properties.name;
-                const intensity = countOf[commune]/max || 0;
-                const rounded = Math.round(intensity*6)/6;
-                const color = white_blue(rounded).hex();
-                const alpha = .7; //lerp(.4, 1, intensity);
-                return {
-                    color: '#404040',
-                    fillColor: color,
-                    fillOpacity: alpha
-                };
-            },
-            onEachFeature: (feature, layer) => {
-                const commune = feature.properties.name;
-                layer.bindPopup(`${commune} (${countOf[commune] || 0})`);
-            }
-        })
-    );
-}
-*/
+//const communes_geojson = json('Chile_AL8.GeoJson');
+const communes_geojson = zipped_json('Chile_AL8.min.zip');
 
 function medians(parts, sortedArray) {
     const n = sortedArray.length;
@@ -175,7 +149,8 @@ function choropleth_layer(locations) {
                     return {
                         color: '#404040',
                         fillColor: color,
-                        fillOpacity: alpha
+                        fillOpacity: alpha,
+                        weight: 0.5
                     };
                 },
                 onEachFeature: (feature, layer) => {
@@ -183,7 +158,8 @@ function choropleth_layer(locations) {
                     layer.bindPopup(`${commune}<br>
                         <b>Núm. ubicaciones</b>: ${countOf[commune] || 0}<br>
                         <b>Población total</b>: ${populationOf[commune]}`)
-                    .on('mouseover', e => layer.openPopup());
+                    .on('mouseover', e => layer.openPopup())
+                    .on('mouseout', e => layer.closePopup());
                 }
             })
         );
