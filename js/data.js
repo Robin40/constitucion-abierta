@@ -9,17 +9,20 @@ function json(file) {
 		$.getJSON(file).done(resolve).fail(reject));
 }
 
-function zipped_json(file) {
-	//return new JSZip().file(file).async('string').then(JSON.parse);
+function zipped_file(file) {
 	return new JSZip.external.Promise((resolve, reject) =>
 		JSZipUtils.getBinaryContent(file, (err, data) =>
 			err ? reject(err) : resolve(data)))
 	.then(JSZip.loadAsync).then(zip => {
 		const innerFile = Object.values(zip.files)[0].name;
 		console.log('innerFile', innerFile);
-		return zip.file(innerFile).async('string').then(JSON.parse);
+		return zip.file(innerFile).async('string');
 	});
 }
+
+const zipped_json = file => zipped_file(file).then(JSON.parse);
+
+const zipped_csv = file => zipped_file(file).then(d3.csvParse);
 
 const is_perez_null = x => x === '\\N';
 const clean_perez_null = x => is_perez_null(x) ? null : +x;
@@ -48,7 +51,7 @@ function clean_concept_row(d) {
 const groupProp = R.compose(R.groupBy, R.prop);
 const indexProp = R.compose(R.indexBy, R.prop);
 
-const _concept = csv('viz_ela_concepto.csv')
+const _concept = zipped_csv('viz_conceptos.zip')
     .then(R.compose(groupProp('concept'), R.map(clean_concept_row)));
 
 const _ela = csv('viz_ela_ubicacion.csv')

@@ -128,12 +128,10 @@ function choropleth_layer(locations) {
     return Promise.props(populationOf).then(populationOf => {
         const densityOf = R.mapObjIndexed((_, commune) =>
             countOf[commune]/populationOf[commune] || 0, countOf);
-        console.log(densityOf);
         const densities = Object.values(densityOf);
         //const max = R.reduce(R.max, 0, densities);
         const sortedDensities = R.sort(R.substract, densities);
         const densityMedians = medians(parts, sortedDensities);
-        console.log('densityMedians', densityMedians);
 
         return communes_geojson.then(communes =>
             L.geoJSON(communes, {
