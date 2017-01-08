@@ -1,0 +1,329 @@
+nombre,id,lat,lng,region,cantidadElas,poblacion
+"Algarrobo",5602,-33.3647762,-71.6705534,"Región de Valparaiso",16,13472
+"Alto Biobío",8314,-38.05,-71.316667,"Región de Biobío",3,10039
+"Alto del Carmen",3302,-28.759444,-70.486667,"Región de Atacama",4,5488
+"Alto Hospicio",1107,-20.2686722,-70.1049169,"Región de Tarapacá",30,94455
+"Ancud",10202,-41.8675003,-73.8276965,"Región de Los Lagos",18,41960
+"Andacollo",4103,-30.2357949,-71.0828027,"Región de Coquimbo",10,11116
+"Angol",9201,-37.8060734,-72.7038047,"Región de La Araucanía",54,51136
+"Antofagasta",2101,-23.6509279,-70.3975022,"Región de Antofagasta",268,348669
+"Antuco",8302,-37.3313164,-71.6764277,"Región de Biobío",4,3774
+"Arauco",8202,-37.2457765,-73.3166644,"Región de Biobío",16,41153
+"Arica",15101,-18.4782534,-70.3125988,"Región de Arica y Parinacota",214,210936
+"Aysén",11201,-45.0070278,-72.5102888,"Región de Aisén",39,27187
+"Buin",13402,-33.7309374,-70.7423218,"Santiago",28,74232
+"Bulnes",8402,-36.7421593,-72.3017718,"Región de Biobío",16,21542
+"Cabildo",5402,-32.4258064,-71.0661621,"Región de Valparaiso",15,21094
+"Cabo de Hornos",12201,-54.933333,-67.616667,"Región de Magallanes",10,1677
+"Cabrero",8303,-37.0332999,-72.4,"Región de Biobío",8,29532
+"Calama",2201,-22.4543923,-68.9293819,"Región de Antofagasta",179,147886
+"Calbuco",10102,-41.7720156,-73.1327093,"Región de Los Lagos",11,34902
+"Caldera",3102,-27.0667,-70.8178142,"Región de Atacama",12,16150
+"Calera de Tango",13403,-33.6291031,-70.7686968,"Santiago",7,27781
+"Calle Larga",5302,-32.857493,-70.6258069,"Región de Valparaiso",8,11110
+"Camarones",15102,-19.0111932,-69.8654656,"Región de Arica y Parinacota",3,679
+"Camiña",1402,-19.3116281,-69.4298687,"Región de Tarapacá",2,1156
+"Canela",4202,-31.398889,-71.456111,"Región de Coquimbo",27,9182
+"Cañete",8203,-37.8058201,-73.3919739,"Región de Biobío",28,33535
+"Carahue",9102,-38.7088593,-73.1678812,"Región de La Araucanía",12,25718
+"Cartagena",5603,-33.5482466,-71.6045745,"Región de Valparaiso",19,17029
+"Casablanca",5102,-33.3190376,-71.4076318,"Región de Valparaiso",14,25165
+"Castro",10201,-42.4801402,-73.7624137,"Región de Los Lagos",36,50764
+"Catemu",5702,-32.7788041,-70.9627036,"Región de Valparaiso",9,13902
+"Cauquenes",7201,-35.9676285,-72.3222331,"Región de Maule",58,40245
+"Cerrillos",13102,-33.5041325,-70.7108995,"Santiago",57,79195
+"Cerro Navia",13103,-33.4216593,-70.7346887,"Santiago",49,128090
+"Chaitén",10401,-42.9167,-72.7167,"Región de Los Lagos",6,7122
+"Chañaral",3201,-29.033333,-71.433333,"Región de Atacama",12,14146
+"Chanco",7202,-35.7333,-72.5333,"Región de Maule",27,9571
+"Chépica",6302,-34.7255387,-71.2725925,"Región de O'Higgins",7,15820
+"Chiguayante",8103,-36.9532166,-73.017378,"Región de Biobío",45,115366
+"Chile Chico",11401,-46.5409005,-71.7222795,"Región de Aisén",17,5334
+"Chillán",8401,-36.6062618,-72.1023351,"Región de Biobío",164,175585
+"Chillán Viejo",8406,-36.6291031,-72.1397968,"Región de Biobío",14,29199
+"Chimbarongo",6303,-34.70924,-71.0412713,"Región de O'Higgins",18,35664
+"Cholchol",9121,-38.6005906,-72.8411406,"Región de La Araucanía",5,10825
+"Chonchi",10203,-42.6232593,-73.7738499,"Región de Los Lagos",6,14639
+"Cobquecura",8403,-36.1386156,-72.7945218,"Región de Biobío",5,5173
+"Cochamó",10103,-41.4923218,-72.3084312,"Región de Los Lagos",2,4326
+"Cochrane",11301,-47.2535728,-72.5729823,"Región de Aisén",6,2759
+"Codegua",6102,-34.0370319,-70.6728641,"Región de O'Higgins",10,12725
+"Coelemu",8404,-36.4833,-72.7,"Región de Biobío",9,15461
+"Coihueco",8405,-36.6291031,-71.8327093,"Región de Biobío",20,24714
+"Coínco",6103,-34.2661579,-70.9593417,"Región de O'Higgins",3,7248
+"Colbún",7402,-35.699248,-71.4146915,"Región de Maule",11,19361
+"Colchane",1403,-19.7,-68.8833,"Región de Tarapacá",3,1384
+"Colina",13301,-33.2044597,-70.6758505,"Santiago",68,113340
+"Collipulli",9202,-37.9582687,-72.4321187,"Región de La Araucanía",15,21705
+"Coltauco",6104,-34.2877978,-71.0855512,"Región de O'Higgins",7,17620
+"Combarbalá",4302,-31.1790967,-71.0050958,"Región de Coquimbo",17,13818
+"Concepción",8101,-36.8201352,-73.0443904,"Región de Biobío",285,227768
+"Conchalí",13104,-33.3846893,-70.6800213,"Santiago",101,121118
+"Concón",5103,-32.9239368,-71.5234793,"Región de Valparaiso",49,63210
+"Constitución",7102,-35.3333,-72.4167,"Región de Maule",17,41416
+"Contulmo",8204,-38.0149266,-73.2292878,"Región de Biobío",7,5188
+"Copiapó",3101,-27.3665763,-70.3321587,"Región de Atacama",152,158261
+"Coquimbo",4102,-29.9590009,-71.3389183,"Región de Coquimbo",129,202441
+"Coronel",8102,-37.0340769,-73.1404838,"Región de Biobío",47,107508
+"Corral",14102,-39.8885744,-73.4315987,"Región de Los Ríos",4,5084
+"Coyhaique",11101,-45.5712254,-72.068265,"Región de Aisén",120,59221
+"Cunco",9103,-38.9320562,-72.0279843,"Región de La Araucanía",11,19024
+"Curacautín",9203,-38.4401849,-71.8876695,"Región de La Araucanía",15,15728
+"Curacaví",13503,-33.3977192,-71.1275212,"Santiago",12,28439
+"Curaco de Vélez",10204,-42.4405468,-73.6037069,"Región de Los Lagos",3,3884
+"Curanilahue",8205,-37.4762431,-73.3421243,"Región de Biobío",24,33855
+"Curarrehue",9104,-39.3616465,-71.5890276,"Región de La Araucanía",4,7540
+"Curepto",7103,-35.0958545,-72.0208891,"Región de Maule",13,9714
+"Curicó",7301,-34.9779853,-71.2528803,"Región de Maule",129,177766
+"Diego de Almagro",3202,-26.3902488,-70.0475302,"Región de Atacama",33,16452
+"Doñihue",6105,-34.228986,-70.9579288,"Región de O'Higgins",20,21023
+"El Bosque",13105,-33.5630463,-70.6752134,"Santiago",139,162671
+"El Carmen",8407,-36.9,-72.0333,"Región de Biobío",15,11830
+"El Monte",13602,-33.6815281,-70.9853968,"Santiago",13,32468
+"El Quisco",5604,-33.398596,-71.6981538,"Región de Valparaiso",10,15829
+"El Tabo",5605,-33.4557162,-71.6669341,"Región de Valparaiso",10,11861
+"Empedrado",7104,-35.589943,-72.2763046,"Región de Maule",4,4250
+"Ercilla",9204,-38.0553156,-72.3833,"Región de La Araucanía",5,9148
+"Estación Central",13106,-33.4590774,-70.6990045,"Santiago",101,119292
+"Florida",8104,-36.8237875,-72.6684718,"Región de Biobío",7,9867
+"Freire",9105,-38.9573,-72.6269289,"Región de La Araucanía",10,27616
+"Freirina",3303,-28.512094,-71.0795967,"Región de Atacama",7,6531
+"Fresia",10104,-41.15,-73.4163343,"Región de Los Lagos",7,12454
+"Frutillar",10105,-41.116667,-73.05,"Región de Los Lagos",24,17756
+"Futaleufú",10402,-43.1833,-71.8667,"Región de Los Lagos",5,1836
+"Futrono",14202,-40.1245411,-72.3808496,"Región de Los Ríos",8,15811
+"Galvarino",9106,-38.4088593,-72.7821187,"Región de La Araucanía",4,11324
+"General Lagos",15202,-17.6533,-69.6347,"Región de Arica y Parinacota",1,739
+"Gorbea",9107,-39.1005597,-72.67636,"Región de La Araucanía",14,15481
+"Graneros",6106,-34.0666916,-70.7325646,"Región de O'Higgins",25,30372
+"Hijuelas",5503,-32.7980018,-71.1437211,"Región de Valparaiso",6,19132
+"Hualaihué",10403,-42.0216398,-72.6891622,"Región de Los Lagos",5,8426
+"Hualañé",7302,-34.9725157,-71.7993371,"Región de Maule",4,9977
+"Hualpén",8112,-36.7866757,-73.1099531,"Región de Biobío",46,86176
+"Hualqui",8105,-36.9737875,-72.9368437,"Región de Biobío",4,21934
+"Huara",1404,-19.9972461,-69.7718515,"Región de Tarapacá",5,2360
+"Huechuraba",13107,-33.3742128,-70.6367425,"Santiago",67,87667
+"Illapel",4201,-31.6308,-71.1653,"Región de Coquimbo",34,30598
+"Independencia",13108,-33.4133469,-70.6662915,"Santiago",96,73874
+"Iquique",1101,-20.2307033,-70.1356692,"Región de Tarapacá",230,184953
+"Isla de Maipo",13603,-33.7464562,-70.9,"Santiago",19,33723
+"Isla de Pascua",5201,-27.11299,-109.3495806,"Región de Valparaiso",8,5761
+"Juan Fernández",5104,-33.7744303,-80.7768613,"Región de Valparaiso",1,792
+"La Calera",5502,-32.7877958,-71.2039963,"Región de Valparaiso",30,55207
+"La Cisterna",13109,-33.5264495,-70.6613511,"Santiago",71,80910
+"La Cruz",5504,-32.8258069,-71.2273055,"Región de Valparaiso",11,17346
+"La Estrella",6202,-34.2051972,-71.6547276,"Región de O'Higgins",3,4821
+"La Florida",13110,-33.5226882,-70.5987142,"Santiago",311,397497
+"La Granja",13111,-33.5377931,-70.620678,"Santiago",50,121214
+"La Higuera",4104,-29.5119534,-71.2000844,"Región de Coquimbo",6,4331
+"La Ligua",5401,-32.4499018,-71.2325958,"Región de Valparaiso",30,38524
+"La Pintana",13112,-33.5855661,-70.6285838,"Santiago",75,202146
+"La Reina",13113,-33.4411269,-70.5340591,"Santiago",288,91927
+"La Serena",4101,-29.9026691,-71.2519374,"Región de Coquimbo",205,211275
+"La Unión",14201,-40.2952749,-73.079328,"Región de Los Ríos",42,38544
+"Lago Ranco",14203,-40.3211603,-72.4822123,"Región de Los Ríos",5,9380
+"Lago Verde",11102,-44.2385218,-71.8511271,"Región de Aisén",3,925
+"Laja",8304,-37.271425,-72.7194906,"Región de Biobío",10,20964
+"Lampa",13302,-33.2827093,-70.879328,"Santiago",29,79421
+"Lanco",14103,-39.4510195,-72.7796167,"Región de Los Ríos",9,16663
+"Las Cabras",6107,-34.2932184,-71.3126292,"Región de O'Higgins",16,23857
+"Las Condes",13114,-33.4087844,-70.567069,"Santiago",500,289949
+"Lautaro",9108,-38.5084312,-72.4541343,"Región de La Araucanía",26,35451
+"Lebu",8201,-37.6097143,-73.6483294,"Región de Biobío",18,25790
+"Licantén",7303,-34.9852447,-71.984988,"Región de Maule",6,6689
+"Limache",5802,-33.0095283,-71.2595888,"Región de Valparaiso",31,45864
+"Linares",7401,-35.846407,-71.5996137,"Región de Maule",80,107311
+"Litueche",6203,-34.117272,-71.725176,"Región de O'Higgins",6,5591
+"Llaillay",5703,-32.844379,-70.942818,"Región de Valparaiso",11,23680
+"Llanquihue",10107,-41.2606312,-73.0078406,"Región de Los Lagos",13,18151
+"Lo Barnechea",13115,-33.352669,-70.518517,"Santiago",103,97230
+"Lo Espejo",13116,-33.5139265,-70.6930841,"Santiago",61,99527
+"Lo Prado",13117,-33.4442688,-70.7233493,"Santiago",125,94766
+"Lolol",6304,-34.7284166,-71.6458243,"Región de O'Higgins",6,6630
+"Loncoche",9109,-39.3681199,-72.6315127,"Región de La Araucanía",16,22191
+"Longaví",7403,-35.9636265,-71.6831251,"Región de Maule",12,28968
+"Los Álamos",8206,-37.6261237,-73.4622664,"Región de Biobío",10,20723
+"Los Andes",5301,-32.8337995,-70.5972179,"Región de Valparaiso",91,110866
+"Los Ángeles",8301,-37.4629159,-72.3612251,"Región de Biobío",106,195813
+"Los Lagos",14104,-41.9197779,-72.1416132,"Región de Los Ríos",19,18733
+"Los Muermos",10106,-41.3994093,-73.4649905,"Región de Los Lagos",8,16522
+"Los Sauces",9206,-37.9791031,-72.8344812,"Región de La Araucanía",4,6490
+"Los Vilos",4203,-31.9121865,-71.5112017,"Región de Coquimbo",33,18483
+"Lota",8106,-37.0920575,-73.1545822,"Región de Biobío",15,48045
+"Lumaco",9207,-38.1640201,-72.9031846,"Región de La Araucanía",9,10479
+"Machalí",6108,-34.179452,-70.6565151,"Región de O'Higgins",50,44566
+"Macul",13118,-33.4851471,-70.5992005,"Santiago",162,111436
+"Máfil",14105,-39.6648976,-72.9571573,"Región de Los Ríos",3,7006
+"Maipú",13119,-33.5209155,-70.7631335,"Santiago",221,805000
+"Malloa",6109,-34.4423905,-70.9463887,"Región de O'Higgins",4,14972
+"Marchihue",6204,-34.3984467,-71.6215715,"Región de O'Higgins",6,7557
+"María Elena",2302,-22.3450046,-69.6607055,"Región de Antofagasta",2,4593
+"María Pinto",13504,-33.5176692,-71.1239221,"Santiago",6,12501
+"Mariquina",14106,-39.540279,-72.965652,"Región de Los Ríos",9,19823
+"Maule",7105,-35.5163603,-71.5723953,"Región de Maule",28,21957
+"Maullín",10108,-41.614807,-73.5990281,"Región de Los Lagos",14,13914
+"Mejillones",2102,-23.0985013,-70.4455041,"Región de Antofagasta",9,9752
+"Melipeuco",9110,-38.852306,-71.6929428,"Región de La Araucanía",4,5451
+"Melipilla",13501,-33.6861588,-71.2166838,"Santiago",52,107698
+"Molina",7304,-35.1164987,-71.2829759,"Región de Maule",20,40329
+"Monte Patria",4303,-30.6978944,-70.9586889,"Región de Coquimbo",28,30137
+"Mostazal",6110,-26.6833,-69.5833,"Región de O'Higgins",14,23430
+"Mulchén",8305,-37.7178812,-72.2374343,"Región de Biobío",15,28517
+"Nancagua",6305,-34.6523209,-71.1968597,"Región de O'Higgins",16,18921
+"Natales",12401,-51.733333,-72.516667,"Región de Magallanes",27,21327
+"Navidad",6205,-33.9593954,-71.8295188,"Región de O'Higgins",6,5650
+"Negrete",8307,-37.5862531,-72.5320562,"Región de Biobío",6,8933
+"Ninhue",8408,-36.4,-72.4,"Región de Biobío",3,5278
+"Ñiquen",8409,-36.3,-71.9,"Región de Biobío",5,10063
+"Nogales",5506,-32.7333,-71.2042115,"Región de Valparaiso",12,26385
+"Nueva Imperial",9111,-38.7445218,-72.9482281,"Región de La Araucanía",20,32109
+"Ñuñoa",13120,-33.4566678,-70.5978415,"Santiago",527,195410
+"O'higgins",11302,-34.5755374,-71.0022311,"Región de Aisén",2,700
+"Olivar",6111,-34.233,-70.883,"Región de O'Higgins",7,13483
+"Olmué",5803,-32.9981387,-71.1892783,"Región de Valparaiso",17,16243
+"Osorno",10301,-40.5761897,-73.1149469,"Región de Los Lagos",151,153797
+"Ovalle",4301,-30.604304,-71.1969882,"Región de Coquimbo",65,112956
+"Padre Hurtado",13604,-33.5749687,-70.8149905,"Santiago",15,50696
+"Padre Las Casas",9112,-38.7667,-72.6,"Región de La Araucanía",31,72135
+"Paihuano",4105,-30.0276898,-70.5178142,"Región de Coquimbo",13,4252
+"Paillaco",14107,-40.0684279,-72.8748414,"Región de Los Ríos",37,19898
+"Paine",13404,-33.8125656,-70.7375968,"Santiago",22,66512
+"Palena",10404,-43.6167,-71.8,"Región de Los Lagos",12,1665
+"Palmilla",6306,-34.5774223,-71.380135,"Región de O'Higgins",7,12373
+"Panguipulli",14108,-39.6436316,-72.3364942,"Región de Los Ríos",10,35185
+"Panquehue",5704,-32.7670303,-70.8333,"Región de Valparaiso",5,7569
+"Papudo",5403,-32.5072087,-71.4485013,"Región de Valparaiso",5,5643
+"Paredones",6206,-34.6519651,-71.9001448,"Región de O'Higgins",7,6802
+"Parral",7404,-36.1399593,-71.8244406,"Región de Maule",20,39404
+"Pedro Aguirre Cerda",13121,-33.4940901,-70.6765026,"Santiago",150,104018
+"Pelarco",7106,-35.3838823,-71.447192,"Región de Maule",6,7959
+"Pelluhue",7203,-35.8141512,-72.5749979,"Región de Maule",28,6636
+"Pemuco",8410,-36.9667,-72.1,"Región de Biobío",4,9120
+"Peñaflor",13605,-33.6060255,-70.8781837,"Santiago",46,87741
+"Peñalolén",13122,-33.4719116,-70.5627854,"Santiago",189,249621
+"Pencahue",7107,-35.3960652,-71.7974563,"Región de Maule",5,9187
+"Penco",8107,-36.7333,-72.9833,"Región de Biobío",10,52389
+"Peralillo",6307,-34.4772681,-71.487259,"Región de O'Higgins",11,10933
+"Perquenco",9113,-38.4161093,-72.3756218,"Región de La Araucanía",3,6911
+"Petorca",5404,-32.25,-70.9333,"Región de Valparaiso",11,10074
+"Peumo",6112,-34.3963392,-71.1700793,"Región de O'Higgins",9,14158
+"Pica",1405,-20.489483,-69.330511,"Región de Tarapacá",14,4194
+"Pichidegua",6113,-34.3573785,-71.2872596,"Región de O'Higgins",5,18637
+"Pichilemu",6201,-34.3867245,-72.0047731,"Región de O'Higgins",24,13916
+"Pinto",8411,-36.7,-71.8940937,"Región de Biobío",9,10883
+"Pirque",13202,-33.6793441,-70.5831069,"Santiago",25,20732
+"Pitrufquén",9114,-38.9833,-72.6417312,"Región de La Araucanía",10,23776
+"Placilla",6308,-34.6337953,-71.1108273,"Región de O'Higgins",14,9624
+"Portezuelo",8412,-36.5267723,-72.4282133,"Región de Biobío",2,5061
+"Porvenir",12301,-53.2957997,-70.3666545,"Región de Magallanes",11,5650
+"Pozo Almonte",1401,-20.2567092,-69.7860128,"Región de Tarapacá",16,11519
+"Primavera",12302,-52.716667,-69.25,"Región de Magallanes",2,803
+"Providencia",13123,-33.4314474,-70.6093325,"Santiago",703,126487
+"Puchuncaví",5105,-32.722005,-71.4117004,"Región de Valparaiso",11,16371
+"Pucón",9115,-39.2722541,-71.9776285,"Región de La Araucanía",18,29987
+"Pudahuel",13124,-33.4421135,-70.7640644,"Santiago",66,225509
+"Puente Alto",13201,-33.6186082,-70.5906057,"Santiago",434,757721
+"Puerto Montt",10101,-41.468917,-72.9411364,"Región de Los Lagos",194,248945
+"Puerto Octay",10302,-40.9768373,-72.8819616,"Región de Los Lagos",6,9480
+"Puerto Varas",10109,-41.3167,-72.9833,"Región de Los Lagos",38,39414
+"Pumanque",6309,-34.6026565,-71.6552933,"Región de O'Higgins",3,3458
+"Punitaqui",4304,-30.8260995,-71.2577912,"Región de Coquimbo",7,10418
+"Punta Arenas",12101,-53.1638329,-70.9170683,"Región de Magallanes",198,125483
+"Puqueldón",10206,-42.6014407,-73.6714848,"Región de Los Lagos",2,4097
+"Purén",9208,-38.0326817,-73.0718283,"Región de La Araucanía",7,11789
+"Purranque",10303,-40.9084312,-73.1661093,"Región de Los Lagos",23,20768
+"Putaendo",5705,-32.628461,-70.7177434,"Región de Valparaiso",10,17369
+"Putre",15201,-18.1969907,-69.5597273,"Región de Arica y Parinacota",6,1462
+"Puyehue",10304,-40.6607937,-72.6131562,"Región de Los Lagos",17,11370
+"Quellón",10208,-43.1169327,-73.6138821,"Región de Los Lagos",20,30964
+"Quilaco",8308,-37.6875544,-71.9986626,"Región de Biobío",2,3722
+"Quilicura",13125,-33.3576747,-70.7292718,"Santiago",70,203946
+"Quillón",8413,-36.7338906,-72.4602031,"Región de Biobío",7,15525
+"Quillota",5501,-32.8803027,-71.2497156,"Región de Valparaiso",77,88803
+"Quilpué",5801,-33.0482707,-71.4408752,"Región de Valparaiso",109,162320
+"Quinchao",10210,-42.5381325,-73.4187729,"Región de Los Lagos",7,9043
+"Quinta de Tilcoco",6114,-34.3554003,-70.9704681,"Región de O'Higgins",12,12144
+"Quinta Normal",13126,-33.4317378,-70.6923917,"Santiago",189,101737
+"Quintero",5107,-32.7723101,-71.5333,"Región de Valparaiso",14,28066
+"Quirihue",8414,-36.2832999,-72.5333,"Región de Biobío",8,11851
+"Rancagua",6101,-34.1701324,-70.7406259,"Región de O'Higgins",190,250638
+"Ránquil",8415,-36.652566,-72.5972962,"Región de Biobío",1,4983
+"Rauco",7305,-34.9253441,-71.3156315,"Región de Maule",9,9878
+"Recoleta",13127,-33.3972075,-70.6428148,"Santiago",287,152985
+"Renca",13128,-33.4063601,-70.7279965,"Santiago",47,142136
+"Rengo",6115,-34.4023791,-70.8674411,"Región de O'Higgins",25,56188
+"Requínoa",6116,-34.2883749,-70.815833,"Región de O'Higgins",21,26235
+"Rinconada",5303,-32.8352416,-70.7010367,"Región de Valparaiso",6,8097
+"Río Bueno",14204,-40.3313422,-72.9485366,"Región de Los Ríos",24,31343
+"Río Claro",7108,-35.2808267,-71.2599507,"Región de Maule",3,13020
+"Río Hurtado",4305,-30.266667,-70.666667,"Región de Coquimbo",12,4149
+"Río Ibáñez",11402,-46.3,-71.933333,"Región de Aisén",7,2208
+"Río Negro",10305,-40.7832999,-73.2333,"Región de Los Lagos",11,13425
+"Romeral",7306,-34.9622896,-71.1319939,"Región de Maule",22,14460
+"Saavedra",9116,-38.7832999,-73.4,"Región de La Araucanía",7,13481
+"Sagrada Familia",7307,-34.9984205,-71.3445822,"Región de Maule",4,17839
+"Salamanca",4204,-31.782493,-70.9607105,"Región de Coquimbo",32,25671
+"San Antonio",5601,-33.5922807,-71.6055123,"Región de Valparaiso",67,87697
+"San Bernardo",13401,-33.6005906,-70.7060687,"Santiago",112,277802
+"San Carlos",8416,-36.42615,-71.9708343,"Región de Biobío",26,51335
+"San Clemente",7109,-35.5364676,-71.4893705,"Región de Maule",23,39554
+"San Esteban",5304,-32.8004995,-70.5798032,"Región de Valparaiso",10,17371
+"San Fabián",8417,-36.55,-71.55,"Región de Biobío",2,3503
+"San Felipe",5701,-32.75,-70.7208115,"Región de Valparaiso",75,72121
+"San Fernando",6301,-34.5858603,-70.9907801,"Región de O'Higgins",65,75221
+"San Ignacio",8418,-36.533333,-72.433333,"Región de Biobío",5,15770
+"San Javier",7406,-35.5930962,-71.7325021,"Región de Maule",55,40881
+"San Joaquín",13129,-33.496202,-70.6283361,"Santiago",70,94255
+"San José de Maipo",13203,-33.643169,-70.345207,"Santiago",26,14455
+"San Juan de la Costa",10306,-40.516667,-73.4,"Región de Los Lagos",14,7997
+"San Miguel",13130,-33.4923545,-70.651797,"Santiago",140,90846
+"San Nicolás",8419,-36.5,-72.2167,"Región de Biobío",12,10051
+"San Pablo",10307,-40.4124926,-73.0124926,"Región de Los Lagos",10,9150
+"San Pedro",13505,-33.8950912,-71.4563779,"Santiago",4,8062
+"San Pedro de Atacama",2203,-22.9087073,-68.1997156,"Región de Antofagasta",4,5605
+"San Pedro de La Paz",8108,-36.8305354,-73.1167368,"Región de Biobío",45,94827
+"San Rafael",7110,-35.3074574,-71.5234986,"Región de Maule",13,8512
+"San Ramón",13131,-33.538901,-70.6424989,"Santiago",54,85195
+"San Rosendo",8310,-37.2620301,-72.7231119,"Región de Biobío",2,3627
+"San Vicente de Tagua Tagua",6117,-34.433891,-71.078598,"Región de O'Higgins",26,47716
+"Santa Bárbara",8311,-37.6667,-72.0167,"Región de Biobío",8,14612
+"Santa Cruz",6310,-34.6324213,-71.3592116,"Región de O'Higgins",28,35255
+"Santa Juana",8109,-37.1749687,-72.9457031,"Región de Biobío",6,13331
+"Santa María",5706,-32.7470027,-70.6587073,"Región de Valparaiso",9,14504
+"Santiago",13101,-33.4488897,-70.6692655,"Santiago",1051,237369
+"Santo Domingo",5606,-33.635833,-71.628056,"Región de Valparaiso",7,9205
+"Sierra Gorda",2103,-22.8860128,-69.3171995,"Región de Antofagasta",1,1206
+"Talagante",13601,-33.6637468,-70.9273937,"Santiago",32,78887
+"Talca",7101,-35.4232444,-71.6484804,"Región de Maule",203,264842
+"Talcahuano",8110,-36.7247834,-73.1169808,"Región de Biobío",54,171673
+"Taltal",2104,-25.406494,-70.4803027,"Región de Antofagasta",5,13493
+"Temuco",9101,-38.7359018,-72.5903739,"Región de La Araucanía",288,269992
+"Teno",7308,-34.8702993,-71.1664033,"Región de Maule",14,28228
+"Teodoro Schmidt",9117,-38.9991844,-73.0942969,"Región de La Araucanía",11,15793
+"Tierra Amarilla",3103,-27.4671706,-70.2652196,"Región de Atacama",17,13912
+"Tiltil",13303,-33.0838906,-70.9279843,"Santiago",18,16405
+"Timaukel",12303,-54.294722,-69.1675,"Región de Magallanes",1,873
+"Tirúa",8207,-38.3419149,-73.495516,"Región de Biobío",2,10859
+"Tocopilla",2301,-22.0857976,-70.1930064,"Región de Antofagasta",16,20091
+"Toltén",9118,-39.2043263,-73.2077436,"Región de La Araucanía",6,10403
+"Tomé",8111,-36.6131562,-72.9588593,"Región de Biobío",22,55764
+"Tortel",11303,-47.8015353,-73.5358494,"Región de Aisén",3,531
+"Traiguén",9210,-38.25,-72.6833,"Región de La Araucanía",14,18357
+"Treguaco",8420,-36.4211406,-72.6605937,"Región de Biobío",8,4995
+"Tucapel",8312,-37.2923048,-71.9512186,"Región de Biobío",6,13442
+"Valdivia",14101,-39.8173788,-73.2425333,"Región de Los Ríos",198,163148
+"Vallenar",3301,-28.5757953,-70.7571009,"Región de Atacama",42,52099
+"Valparaíso",5101,-33.047238,-71.6126885,"Región de Valparaiso",354,308137
+"Vichuquén",7309,-34.8837446,-71.9953972,"Región de Maule",7,4335
+"Victoria",9211,-38.2326538,-72.3515084,"Región de La Araucanía",18,33127
+"Vicuña",4106,-30.0319,-70.7081,"Región de Coquimbo",13,26029
+"Vilcún",9119,-38.6677187,-72.2244406,"Región de La Araucanía",15,23823
+"Villa Alegre",7407,-35.6761961,-71.7439129,"Región de Maule",7,15428
+"Villa Alemana",5804,-33.0516935,-71.3906234,"Región de Valparaiso",68,135368
+"Villarrica",9120,-39.2820124,-72.2307798,"Región de La Araucanía",31,56178
+"Viña del Mar",5109,-33.0153481,-71.5500276,"Región de Valparaiso",252,311399
+"Vitacura",13132,-33.3905211,-70.5724124,"Santiago",192,84195
+"Yerbas Buenas",7408,-35.750077,-71.5837328,"Región de Maule",9,17158
+"Yumbel",8313,-37.0833,-72.5667,"Región de Biobío",10,20572
+"Yungay",8421,-37.1220156,-72.0131562,"Región de Biobío",12,18234
+"Zapallar",5405,-32.5538059,-71.4581359,"Región de Valparaiso",3,6726

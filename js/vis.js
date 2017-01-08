@@ -122,14 +122,13 @@ function choropleth_layer(locations) {
     const parts = 7;
 
     const countOf = R.countBy(d => d.commune || d.nombre, locations);
-    const populationOf = R.mapObjIndexed((_, commune) =>
-        data.commune(commune).then(d => d.poblacion), countOf);
 
-    return Promise.props(populationOf).then(populationOf => {
+    return data.commune().then(_d => {
+        const d = prop => _d[prop] != null ? _d[prop] : {};
+
         const densityOf = R.mapObjIndexed((_, commune) =>
-            countOf[commune]/populationOf[commune] || 0, countOf);
+            countOf[commune]/d(commune).cantidadElas || 0, countOf);
         const densities = Object.values(densityOf);
-        //const max = R.reduce(R.max, 0, densities);
         const sortedDensities = R.sort(R.substract, densities);
         const densityMedians = medians(parts, sortedDensities);
 
@@ -153,9 +152,12 @@ function choropleth_layer(locations) {
                 },
                 onEachFeature: (feature, layer) => {
                     const commune = feature.properties.name;
-                    layer.bindPopup(`${commune}<br>
+                    layer.bindPopup(`${commune}
+                        <span style="font-size:xx-small">
+                            <b>(${d(commune).region})</b></span><hr>
                         <b>Núm. ubicaciones</b>: ${countOf[commune] || 0}<br>
-                        <b>Población total</b>: ${populationOf[commune]}`)
+                        <b>Cantidad ELAs</b>: ${d(commune).cantidadElas}<br>
+                        <b>Población total</b>: ${d(commune).poblacion}`)
                     .on('mouseover', e => layer.openPopup())
                     .on('mouseout', e => layer.closePopup());
                 }
@@ -163,7 +165,6 @@ function choropleth_layer(locations) {
         );
     });
 }
-
 function init_map(location, zoom, divId) {
     return L.map(divId).setView(location, zoom)
         .addLayer(mapbox_layer());

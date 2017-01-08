@@ -57,7 +57,7 @@ const _concept = zipped_csv('viz_conceptos.zip')
 const _ela = csv('viz_ela_ubicacion.csv')
     .then(R.compose(indexProp('idEla'), R.map(clean_ela_row)));
 
-const _commune = csv('viz_comunas_ubicacion.csv')
+const _commune = csv('viz_comunas.csv')
     .then(indexProp('nombre'));
 
 function NullPropException(prop) {
