@@ -33,7 +33,9 @@ function clean_ela_row(d) {
         lat: clean_perez_null(d.lat),
         lng: clean_perez_null(d.lng),
         commune: d.comuna,
-        date: new Date(d.fecha)
+        date: new Date(d.fecha),
+        link: d.link,
+        participants: d.participantes
 	};
 }
 
@@ -54,11 +56,16 @@ const indexProp = R.compose(R.indexBy, R.prop);
 const _concept = zipped_csv('viz_conceptos.zip')
     .then(R.compose(groupProp('concept'), R.map(clean_concept_row)));
 
-const _ela = csv('viz_ela_ubicacion.csv')
+const _ela = csv('viz_elas.csv')
     .then(R.compose(indexProp('idEla'), R.map(clean_ela_row)));
 
-const _commune = csv('viz_comunas.csv')
+const _viz_comunas = csv('viz_comunas.csv')
+
+const _commune = _viz_comunas
     .then(indexProp('nombre'));
+
+const _communeById = _viz_comunas
+	.then(indexProp('id'));
 
 function NullPropException(prop) {
 	this.name = "NullPropException";
@@ -80,7 +87,8 @@ const tryProp = prop => obj => {
 const data = {
 	concept: concept => _concept.then(tryProp(concept)),
 	ela: idEla => _ela.then(tryProp(idEla)),
-	commune: name => _commune.then(tryProp(name))
+	commune: name => _commune.then(tryProp(name)),
+	commune_by_id: id => _communeById.then(tryProp(id))
 };
 
 function ela_location(idEla) {

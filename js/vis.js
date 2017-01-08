@@ -1,13 +1,3 @@
-function boolean_heatmap(locations) {
-	return {
-		points: R.map(location => ({
-        	lat: location.lat,
-        	lng: location.lng,
-        	intensity: 1
-        }), locations)
-    };
-}
-
 function mapbox_layer() {
     const tiles = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
     //const tiles = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
@@ -32,24 +22,6 @@ function empty_boolean_heatmap_layer() {
     };
 
     return new HeatmapOverlay(cfg);
-}
-
-function init_boolean_heatmap(location, zoom, divId) {
-	const map = L.map(divId).setView(location, zoom);
-    const heatmapLayer = empty_boolean_heatmap_layer();
-
-    map.addLayer(mapbox_layer())
-        .addLayer(heatmapLayer);
-
-    return heatmapLayer;
-}
-
-function show_boolean_heatmap(heatmapLayer, heatmap) {
-	const data = {
-		max: Infinity,
-		data: heatmap.points
-	};
-	heatmapLayer.setData(data);
 }
 
 function boolean_heatmap_layer(locations) {
@@ -117,7 +89,7 @@ function bs_last(pred, sortedArray) {
     }
     return r;
 }
-
+/*
 function choropleth_layer(locations) {
     const parts = 7;
 
@@ -165,6 +137,70 @@ function choropleth_layer(locations) {
         );
     });
 }
+*/
+
+const elvisified = obj => prop => obj[prop] != null ? obj[prop] : {};
+
+function choropleth_layer(locations) {
+    const parts = 7;
+
+    function get_countById(locations) {
+        return data.commune().then(_D => {
+            const D = elvisified(_D);
+            return R.countBy(d => d.id || D(d.commune).id, locations);
+        });
+    }
+
+    return Promise.join(
+            get_countById(locations),
+            data.commune_by_id(),
+            communes_geojson, (countById, _byId, communes) => {
+        const byId = elvisified(_byId);
+
+        const densityById = R.mapObjIndexed((count, id) =>
+            count/byId(id).cantidadElas || 0, countById);
+        const densities = Object.values(densityById);
+        const sortedDensities = R.sort(R.substract, densities);
+        const densityMedians = medians(parts, sortedDensities);
+
+        function style(feature) {
+            const id = +feature.properties.tags['dpachile:id'];
+            const part = bs_last(m =>
+                m <= densityById[id], densityMedians);
+            const intensity = part/(parts - 1);
+
+            const color = white_blue(intensity).hex();
+            const alpha = .7; //lerp(.4, 1, intensity);
+            return {
+                color: '#404040',
+                fillColor: color,
+                fillOpacity: alpha,
+                weight: 0.5
+            };
+        }
+
+        function onEachFeature(feature, layer) {
+            const id = +feature.properties.tags['dpachile:id'];
+            const commune = byId(id);
+            layer.bindPopup(`${commune.nombre}
+                <span style="font-size:xx-small">
+                    <b>(${commune.region})</b></span><hr>
+                <b>Núm. ubicaciones</b>: ${countById[id] || 0}<br>
+                <b>Cantidad ELAs</b>: ${commune.cantidadElas}<br>
+                <b>Población total</b>: ${commune.poblacion}`)
+            .on('mouseover', e => layer.openPopup())
+            .on('mouseout', e => layer.closePopup());
+        }
+
+        return communes_geojson.then(communes =>
+            L.geoJSON(communes, {
+                style: style,
+                onEachFeature: onEachFeature
+            })
+        );
+    });
+}
+
 function init_map(location, zoom, divId) {
     return L.map(divId).setView(location, zoom)
         .addLayer(mapbox_layer());
