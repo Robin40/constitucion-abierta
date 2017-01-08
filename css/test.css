@@ -111,3 +111,9 @@ p, h1, h2, div {
 .ui-autocomplete {
     z-index: 9999 !important;
 }
+
+.truncated {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

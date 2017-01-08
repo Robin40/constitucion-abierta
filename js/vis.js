@@ -163,6 +163,8 @@ function choropleth_layer(locations) {
         const sortedDensities = R.sort(R.substract, densities);
         const densityMedians = medians(parts, sortedDensities);
 
+        const concept = $('#concept').val();
+
         function style(feature) {
             const id = +feature.properties.tags['dpachile:id'];
             const part = bs_last(m =>
@@ -182,12 +184,21 @@ function choropleth_layer(locations) {
         function onEachFeature(feature, layer) {
             const id = +feature.properties.tags['dpachile:id'];
             const commune = byId(id);
+            /*
             layer.bindPopup(`${commune.nombre}
                 <span style="font-size:xx-small">
                     <b>(${commune.region})</b></span><hr>
                 <b>Núm. ubicaciones</b>: ${countById[id] || 0}<br>
                 <b>Cantidad ELAs</b>: ${commune.cantidadElas}<br>
                 <b>Población total</b>: ${commune.poblacion}`)
+            */
+            layer.bindPopup(`${commune.nombre}
+                <span style="font-size:xx-small">
+                    <b>(${commune.region})</b></span><hr>
+                <div style="width:16em" class="truncated">
+                    <b>${concept}</b></div>
+                <b>mencionado en</b> ${countById[id] || 0}
+                 <b>de</b> ${commune.cantidadElas} <b>ELAs</b>`)
             .on('mouseover', e => layer.openPopup())
             .on('mouseout', e => layer.closePopup());
         }
