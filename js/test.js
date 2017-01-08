@@ -1,17 +1,19 @@
 function update_map(get_layer, map) {
     const concept = $('#concept').val();
 
-    concept_locations(concept).then(locations => {
+    return concept_locations(concept).then(locations => {
         $('#num-ubicaciones').text(locations.length);
-        get_layer(locations).then(layer => {
+        return get_layer(locations).then(layer => {
             show_overlay(layer, map);
         });
     });
 }
 
 function update_vis(mapChile, map) {
-    update_map(boolean_heatmap_layer, mapChile);
-    update_map(choropleth_layer, map);
+    return Promise.all([
+        update_map(boolean_heatmap_layer, mapChile),
+        update_map(choropleth_layer, map)
+    ]).finally(_ => $('#update-vis').prop('disabled', false));
 }
 
 function init_switch(mapChile, map, mapId, divId) {
@@ -43,6 +45,7 @@ $(function () {
 
     /* visualize */
     $('#concept-search').on('submit', function() {
+        $('#update-vis').prop('disabled', true);
         update_vis(mapChile, map);
     });
 
