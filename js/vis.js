@@ -141,77 +141,6 @@ function choropleth_layer(locations) {
 
 const elvisified = obj => prop => obj[prop] != null ? obj[prop] : {};
 
-function choropleth_layer_old(locations) {
-    const parts = 7;
-
-    function get_countById(locations) {
-        return data.commune().then(_D => {
-            const D = elvisified(_D);
-            return R.countBy(d => d.id || D(d.commune).id, locations);
-        });
-    }
-
-    return Promise.join(
-            get_countById(locations),
-            data.commune_by_id(),
-            communes_geojson, (countById, _byId, communes) => {
-        const byId = elvisified(_byId);
-
-        const densityById = R.mapObjIndexed((count, id) =>
-            count/byId(id).cantidadElas || 0, countById);
-        const densities = Object.values(densityById);
-        const sortedDensities = R.sort(R.substract, densities);
-        const densityMedians = medians(parts, sortedDensities);
-
-        const concept = $('#concept').val();
-
-        function style(feature) {
-            const id = +feature.properties.tags['dpachile:id'];
-            const part = bs_last(m =>
-                m <= densityById[id], densityMedians);
-            const intensity = part/(parts - 1);
-
-            const color = white_blue(intensity).hex();
-            const alpha = .7; //lerp(.4, 1, intensity);
-            return {
-                color: '#404040',
-                fillColor: color,
-                fillOpacity: alpha,
-                weight: 0.5
-            };
-        }
-
-        function onEachFeature(feature, layer) {
-            const id = +feature.properties.tags['dpachile:id'];
-            const commune = byId(id);
-            /*
-            layer.bindPopup(`${commune.nombre}
-                <span style="font-size:xx-small">
-                    <b>(${commune.region})</b></span><hr>
-                <b>Núm. ubicaciones</b>: ${countById[id] || 0}<br>
-                <b>Cantidad ELAs</b>: ${commune.cantidadElas}<br>
-                <b>Población total</b>: ${commune.poblacion}`)
-            */
-            layer.bindPopup(`${commune.nombre}
-                <span style="font-size:xx-small">
-                    <b>(${commune.region})</b></span><hr>
-                <div style="width:16em" class="truncated">
-                    <b>${concept}</b></div>
-                <b>mencionado en</b> ${countById[id] || 0}
-                 <b>de</b> ${commune.cantidadElas} <b>ELAs</b>`)
-            .on('mouseover', e => layer.openPopup())
-            .on('mouseout', e => layer.closePopup());
-        }
-
-        return communes_geojson.then(communes =>
-            L.geoJSON(communes, {
-                style: style,
-                onEachFeature: onEachFeature
-            })
-        );
-    });
-}
-
 function choropleth_layer(locations) {
     const parts = 7;
 
@@ -279,15 +208,33 @@ function choropleth_layer(locations) {
             const date = d.date;
             const females = d.participants.filter(p => p.sex === 'F');
             const   males = d.participants.filter(p => p.sex === 'M');
-            return `<div class="truncated"><a target="_blank"
-                href="http://actas-encuentros-locales.unaconstitucion` +
-                `parachile.cl/encuentros/${d.link}.html">Link</a>
+            const acuerdo = {
+                A: 'Acuerdo', P: 'Parcial', D: 'Desacuerdo'
+            }[d.acuerdo];
+
+            return `<tr><td style="text-align:right">
                 ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
+            </td><td style="text-align:right">
                 <b>${females.length}</b>&#9792;
-                <b>${males.length}</b>&#9794;
-                &nbsp;&nbsp;&nbsp;&nbsp;${d.fundament}
-                </div>`;
+            </td><td style="text-align:right">
+                <b>${males.length}</b>
+            </td><td style="text-align:left">
+                &#9794;
+            </td><td style="text-align:right">
+                <a target="_blank"
+                href="http://actas-encuentros-locales.unaconstitucion` +
+                `parachile.cl/encuentros/${d.link}.html">${acuerdo}</a>
+            </td><td title="${d.fundament}" style="min-width:32em">
+                <table class="fixed-table"><tr><td class="truncated">
+                    ${d.fundament}
+                </td></tr></table>
+            </td></tr>`;
         }
+
+        const thead = `<thead><tr>
+            <th>Fecha</th> <th colspan="3">Participantes</th>
+            <th>Acuerdo</th> <th style="text-align:left">Fundamento</th>
+        </tr></thead>`;
 
         return communes_geojson.then(communes =>
             L.geoJSON(communes, {
@@ -297,8 +244,11 @@ function choropleth_layer(locations) {
                 const feature = e.layer.feature;
                 const id = +feature.properties.tags['dpachile:id'];
                 const group = groupById[id] || [];
-                const info = R.map(location_info, group);
-                $('#fundament-list').html(info.join(''));
+                const sortedGroup = R.sortBy(R.prop('date'), group);
+                const rows = R.map(location_info, sortedGroup);
+                const table = `<table>${thead}<tbody>
+                    ${rows.join('')}</tbody></table>`;
+                $('#fundament-list').html(table);
             })
         );
     });

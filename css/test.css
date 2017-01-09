@@ -7,8 +7,37 @@ p, h1, h2, div {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-#content {
+#body {
     position: absolute;
+    width: 98%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+}
+
+#nav {
+    flex-shrink: 0;
+}
+
+#title {
+    display: inline-block;
+}
+
+#nav form {
+    display: inline-block;
+    float: right;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+}
+
+
+#content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 #map-chile-widget {
@@ -38,9 +67,11 @@ p, h1, h2, div {
 }
 
 #concepts-widget {
-    position: absolute;
+    position: relative;
     left: calc(20vh + 1vw);
     width: calc(100vw - 20vh - 3vw);
+    height: 100%;
+    flex-shrink: 0;
 }
 
 #top-concepts .img-box {
@@ -51,12 +82,45 @@ p, h1, h2, div {
 
 }
 
+#fundaments-widget {
+    position: relative;
+    left: calc(20vh + 1vw);
+    width: calc(100vw - 20vh - 3vw);
+    /*height: 100%;*/
+    overflow-y: auto;
+}
+
 #fundaments-location {
     float: left;
 }
 
-#fundament-list {
-    overflow: auto;
+@media all and (min-width: 1000px) {
+    #fundament-list {
+        font-size: small;
+    }
+}
+
+@media all and (max-width: 999px) {
+    #fundament-list {
+        font-size: x-small;
+    }
+}
+
+@media all and (max-width: 499px) {
+    #fundament-list {
+        font-size: xx-small;
+    }
+}
+
+#fundament-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fixed-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
 }
 
 /*
@@ -81,20 +145,6 @@ p, h1, h2, div {
         width: 50%;
     }
 }*/
-
-#title {
-    display: inline-block;
-}
-
-#nav form {
-    display: inline-block;
-    float: right;
-}
-
-#footer {
-    position: fixed;
-    bottom: 0;
-}
 
 .attribute {
     display: inline-block;
