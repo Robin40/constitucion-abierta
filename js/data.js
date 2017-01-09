@@ -27,6 +27,16 @@ const zipped_csv = file => zipped_file(file).then(d3.csvParse);
 const is_perez_null = x => x === '\\N';
 const clean_perez_null = x => is_perez_null(x) ? null : +x;
 
+function parsed_participant(p) {
+	return {
+		sex: p[0],
+		age: p.slice(2)
+	};
+}
+
+const parsed_participants = participants =>
+	R.map(parsed_participant, participants.split(','));
+
 function clean_ela_row(d) {
 	return {
 		idEla: d.idEla,
@@ -35,7 +45,7 @@ function clean_ela_row(d) {
         commune: d.comuna,
         date: new Date(d.fecha),
         link: d.link,
-        participants: d.participantes
+        participants: parsed_participants(d.participantes)
 	};
 }
 
@@ -46,7 +56,9 @@ function clean_concept_row(d) {
 	return {
 		idEla: d.idEla,
 		tema: d.tema,
-		concept: clean_concept(d.concepto)
+		concept: clean_concept(d.concepto),
+		acuerdo: d.acuerdo,
+		fundament: d.fundamento
 	};
 }
 
@@ -91,11 +103,16 @@ const data = {
 	commune_by_id: id => _communeById.then(tryProp(id))
 };
 
-function ela_location(idEla) {
-	return data.ela(idEla).then(ela =>
+function with_commune_latlng(ela) {
+	return data.commune(ela.commune).then(R.merge(ela));
+}
+
+function ela_location(d) {
+	return data.ela(d.idEla).then(ela =>
 		(ela.lat == null || ela.lng == null) ?
-			data.commune(ela.commune) : ela
-	).catch(error => {
+			with_commune_latlng(ela) : ela)
+	.then(R.merge(d))
+	.catch(error => {
 		if (error instanceof NullPropException)
 			return null;
 		throw error;
@@ -112,8 +129,7 @@ function concept_locations(concept) {
 
 function concept_locations(concept) {
 	return data.concept(concept).then(D => {
-		const locations = Promise.all(
-			R.map(d => ela_location(d.idEla), D));
+		const locations = Promise.all(R.map(ela_location, D));
 		const filtered = locations.then(R.filter(x => x != null));
 		return filtered;
 	}).catch(error => {
