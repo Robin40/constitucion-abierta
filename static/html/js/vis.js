@@ -71,7 +71,7 @@ const white_black = chroma.scale(['#ffffff', '#000000']);
 const white_blue = chroma.scale(['#ffffff', '#0000a0']);
 
 //const communes_geojson = json('Chile_AL8.GeoJson');
-const communes_geojson = zipped_json('static/html/data/Chile_AL8.min.zip');
+const communes_geojson = zipped_json(`${data_}Chile_AL8.min.zip`);
 
 function medians(parts, sortedArray) {
     const n = sortedArray.length;
@@ -89,55 +89,6 @@ function bs_last(pred, sortedArray) {
     }
     return r;
 }
-/*
-function choropleth_layer(locations) {
-    const parts = 7;
-
-    const countOf = R.countBy(d => d.commune || d.nombre, locations);
-
-    return data.commune().then(_d => {
-        const d = prop => _d[prop] != null ? _d[prop] : {};
-
-        const densityOf = R.mapObjIndexed((_, commune) =>
-            countOf[commune]/d(commune).cantidadElas || 0, countOf);
-        const densities = Object.values(densityOf);
-        const sortedDensities = R.sort(R.substract, densities);
-        const densityMedians = medians(parts, sortedDensities);
-
-        return communes_geojson.then(communes =>
-            L.geoJSON(communes, {
-                style: feature => {
-                    const commune = feature.properties.name;
-                    //const intensity = densityOf[commune]/max || 0;
-                    //const rounded = Math.ceil(intensity*(parts-1)/(parts-1));
-                    const part = bs_last(m =>
-                        m <= densityOf[commune], densityMedians);
-                    const intensity = part/(parts - 1);
-                    const color = white_blue(intensity).hex();
-                    const alpha = .7; //lerp(.4, 1, intensity);
-                    return {
-                        color: '#404040',
-                        fillColor: color,
-                        fillOpacity: alpha,
-                        weight: 0.5
-                    };
-                },
-                onEachFeature: (feature, layer) => {
-                    const commune = feature.properties.name;
-                    layer.bindPopup(`${commune}
-                        <span style="font-size:xx-small">
-                            <b>(${d(commune).region})</b></span><hr>
-                        <b>Núm. ubicaciones</b>: ${countOf[commune] || 0}<br>
-                        <b>Cantidad ELAs</b>: ${d(commune).cantidadElas}<br>
-                        <b>Población total</b>: ${d(commune).poblacion}`)
-                    .on('mouseover', e => layer.openPopup())
-                    .on('mouseout', e => layer.closePopup());
-                }
-            })
-        );
-    });
-}
-*/
 
 const elvisified = obj => prop => obj[prop] != null ? obj[prop] : {};
 
@@ -199,9 +150,9 @@ function choropleth_layer(locations) {
                 <div style="width:16em" class="truncated">
                     <b>${concept}</b></div>
                 <b>mencionado en</b> ${countById[id] || 0}
-                 <b>de</b> ${commune.cantidadElas} <b>ELAs</b>`)
-            .on('mouseover', e => layer.openPopup())
-            .on('mouseout', e => layer.closePopup());
+                 <b>de</b> ${commune.cantidadElas} <b>ELAs</b>`);
+            /*.on('mouseover', e => layer.openPopup())
+            .on('mouseout', e => layer.closePopup());*/
         }
 
         function fundaments_nav_html(id) {
