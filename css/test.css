@@ -3,14 +3,28 @@
     max-height: 100%;
 }
 
-p, h1, h2, div {
+p, h1, h2, div, span {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+hr {
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-style: inset;
+    border-width: 1px;
+
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #body {
     position: absolute;
     width: 98%;
     height: 98%;
+    margin: 8px;
     display: flex;
     flex-direction: column;
 }
@@ -46,12 +60,6 @@ p, h1, h2, div {
     height: 90vh;
 }
 
-#map-widget {
-    height: 65vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .map-widget h2 {
     display: inline-block;
 }
@@ -82,6 +90,51 @@ p, h1, h2, div {
 
 }
 
+/*@media all and (orientation:portrait) {*/
+    #map-and-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #map-widget {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #info-widget {
+        max-height: 15vh;
+        display: flex;
+        flex-direction: column;
+    }
+/*}*/
+/*
+@media all and (orientation:landscape) {
+    #map-and-info {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #map-widget {
+        width: 100%;
+        height: 65vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #info-widget {
+        width: 20%;
+        height: 65vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+*/
+#info {
+    height: 100%;
+    overflow-y: auto;
+}
+
 #fundaments-widget {
     position: relative;
     left: calc(20vh + 1vw);
@@ -94,27 +147,44 @@ p, h1, h2, div {
     float: left;
 }
 
-@media all and (min-width: 1000px) {
+@media all and (min-width:1000px) {
+    .not-so-small {
+        font-size: medium;
+    }
+
     #fundament-list {
         font-size: small;
     }
 }
 
-@media all and (max-width: 999px) {
+@media all and (max-width:999px) {
+    .not-so-small {
+        font-size: small;
+    }
+
     #fundament-list {
         font-size: x-small;
     }
 }
 
-@media all and (max-width: 499px) {
+@media all and (max-width:499px) {
+    .not-so-small {
+        font-size: x-small;
+    }
+
     #fundament-list {
         font-size: xx-small;
     }
 }
 
-#fundament-list table {
+.fundament-table {
     width: 100%;
     border-collapse: collapse;
+}
+
+.fundament-table > thead > tr > th,
+.fundament-table > tbody > tr > td {
+    border-bottom: 1px solid #ddd;
 }
 
 .fixed-table {
@@ -160,6 +230,11 @@ p, h1, h2, div {
 
 .ui-autocomplete {
     z-index: 9999 !important;
+}
+
+.strong {
+    color: darkblue;
+    font-weight: bold;
 }
 
 .truncated {

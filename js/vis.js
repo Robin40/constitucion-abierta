@@ -204,6 +204,15 @@ function choropleth_layer(locations) {
             .on('mouseout', e => layer.closePopup());
         }
 
+        function fundaments_nav_html(id) {
+            const commune = byId(id);
+            return `Encuentros Locales Autoconvocados para la comuna
+                <span class="strong">"${commune.nombre}"</span>
+                con concepto
+                <span class="strong">"${concept}"</span>
+                `;
+        }
+
         function location_info(d) {
             const date = d.date;
             const females = d.participants.filter(p => p.sex === 'F');
@@ -212,7 +221,13 @@ function choropleth_layer(locations) {
                 A: 'Acuerdo', P: 'Parcial', D: 'Desacuerdo'
             }[d.acuerdo];
 
-            return `<tr><td style="text-align:right">
+            return `<tr><td style="text-align:center">
+                <a target="_blank"
+                href="http://actas-encuentros-locales.unaconstitucion` +
+                `parachile.cl/encuentros/${d.link}.html">
+                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                </a>
+            </td><td style="text-align:right">
                 ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
             </td><td style="text-align:right">
                 <b>${females.length}</b>&#9792;
@@ -220,10 +235,8 @@ function choropleth_layer(locations) {
                 <b>${males.length}</b>
             </td><td style="text-align:left">
                 &#9794;
-            </td><td style="text-align:right">
-                <a target="_blank"
-                href="http://actas-encuentros-locales.unaconstitucion` +
-                `parachile.cl/encuentros/${d.link}.html">${acuerdo}</a>
+            </td><td style="text-align:center; padding:1px 1em">
+                ${acuerdo}
             </td><td title="${d.fundament}" style="min-width:32em">
                 <table class="fixed-table"><tr><td class="truncated">
                     ${d.fundament}
@@ -232,8 +245,10 @@ function choropleth_layer(locations) {
         }
 
         const thead = `<thead><tr>
-            <th>Fecha</th> <th colspan="3">Participantes</th>
-            <th>Acuerdo</th> <th style="text-align:left">Fundamento</th>
+            <th>Link</th> <th style="text-align:center">Fecha</th>
+            <th colspan="3">Participantes</th>
+            <th style="padding:1px 1em">Acuerdo</th>
+            <th style="text-align:left">Fundamento</th>
         </tr></thead>`;
 
         return communes_geojson.then(communes =>
@@ -246,8 +261,9 @@ function choropleth_layer(locations) {
                 const group = groupById[id] || [];
                 const sortedGroup = R.sortBy(R.prop('date'), group);
                 const rows = R.map(location_info, sortedGroup);
-                const table = `<table>${thead}<tbody>
+                const table = `<table class="fundament-table">${thead}<tbody>
                     ${rows.join('')}</tbody></table>`;
+                $('#fundaments-nav').html(fundaments_nav_html(id));
                 $('#fundament-list').html(table);
             })
         );

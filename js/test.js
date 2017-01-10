@@ -1,19 +1,35 @@
-function update_map(get_layer, map) {
-    const concept = $('#concept').val();
-
-    return concept_locations(concept).then(locations => {
-        $('#num-ubicaciones').text(locations.length);
-        return get_layer(locations).then(layer => {
-            show_overlay(layer, map);
-        });
+function update_map(get_layer, map, locations) {
+    return get_layer(locations).then(layer => {
+        show_overlay(layer, map);
     });
 }
 
+function map_caption_html(concept) {
+    return `Visualización del concepto
+        <span class="strong"><b>"${concept}"</b></span>`;
+}
+
+function info_html(info) {
+    return `<b>Número de ubicaciones</b>: ${info.numUbicaciones}<br>
+        ${info.acuerdos.A} <b>acuerdos</b>,
+        ${info.acuerdos.P} <b>ac. parciales</b> y
+        ${info.acuerdos.D} <b>desacuerdos</b>`;
+}
+
+function update_info(locations) {
+    const concept = $('#concept').val();
+    $('#map-caption').html(map_caption_html(concept));
+    $('#info').html(info_html(locations_info(locations)));
+}
+
 function update_vis(mapChile, map) {
-    return Promise.all([
-        update_map(boolean_heatmap_layer, mapChile),
-        update_map(choropleth_layer, map)
-    ]).finally(_ => $('#update-vis').prop('disabled', false));
+    const concept = $('#concept').val();
+
+    return concept_locations(concept).then(locations => Promise.all([
+        update_map(boolean_heatmap_layer, mapChile, locations),
+        update_map(choropleth_layer, map, locations),
+        update_info(locations)
+    ])).finally(_ => $('#update-vis').prop('disabled', false));
 }
 
 function init_switch(mapChile, map, mapId, divId) {
@@ -50,14 +66,30 @@ $(function () {
     });
 
     /* autocomplete */
-    data.concept().then(d => {
+    data.concepts_list().then(d => {
         const concepts = Object.keys(d);
+
         $('#concept').autocomplete({
             maxResults: 10,
             source: function(request, response) {
                 var results = $.ui.autocomplete.filter(concepts, request.term);
                 response(results.slice(0, this.options.maxResults));
-            }
-        });
+            },
+            autoFocus: true,
+            delay: 0,
+
+        }).data('ui-autocomplete')._renderItem = function(ul, item) {
+            const concept = item.value;
+            const html = `<li><span>
+                <span style="width:7em; display:table-cell" class="strong">
+                    ${tema_name(d[concept].tema)}</span>
+                ${concept}
+            </span></li>`;
+            /*const html = `<span style="width:7em; display:table-cell"
+                class="strong">${tema_name(d[concept].tema)}</span>
+                <li>${concept}</li>`;*/
+
+            return $(html).data('item.autocomplete', item).appendTo(ul);
+        };
     });
 });

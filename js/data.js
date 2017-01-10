@@ -62,6 +62,13 @@ function clean_concept_row(d) {
 	};
 }
 
+function clean_concepts_list_row(d) {
+	return {
+		tema: d.tema,
+		concept: clean_concept(d.concepto)
+	};
+}
+
 const groupProp = R.compose(R.groupBy, R.prop);
 const indexProp = R.compose(R.indexBy, R.prop);
 
@@ -71,13 +78,13 @@ const _concept = zipped_csv('viz_conceptos.zip')
 const _ela = csv('viz_elas.csv')
     .then(R.compose(indexProp('idEla'), R.map(clean_ela_row)));
 
-const _viz_comunas = csv('viz_comunas.csv')
+const _viz_comunas = csv('viz_comunas.csv');
 
-const _commune = _viz_comunas
-    .then(indexProp('nombre'));
+const _commune = _viz_comunas.then(indexProp('nombre'));
+const _communeById = _viz_comunas.then(indexProp('id'));
 
-const _communeById = _viz_comunas
-	.then(indexProp('id'));
+const _concepts_list = csv('viz_lista_conceptos.csv')
+	.then(R.compose(indexProp('concept'), R.map(clean_concepts_list_row)));
 
 function NullPropException(prop) {
 	this.name = "NullPropException";
@@ -100,7 +107,8 @@ const data = {
 	concept: concept => _concept.then(tryProp(concept)),
 	ela: idEla => _ela.then(tryProp(idEla)),
 	commune: name => _commune.then(tryProp(name)),
-	commune_by_id: id => _communeById.then(tryProp(id))
+	commune_by_id: id => _communeById.then(tryProp(id)),
+	concepts_list: () => _concepts_list
 };
 
 function with_commune_latlng(ela) {
@@ -141,4 +149,21 @@ function concept_locations(concept) {
 
 function concept_heatmap(concept) {
 	return concept_locations(concept).then(boolean_heatmap);
+}
+
+function locations_info(locations) {
+	return {
+		numUbicaciones: locations.length,
+		acuerdos: R.countBy(d => d.acuerdo, locations)
+	};
+}
+
+const _tema_name = {
+	'1': 'Valores',
+	'2': 'Derechos',
+	'3': 'Deberes',
+	'4': 'Instituciones'
+};
+function tema_name(tema) {
+	return _tema_name[tema];
 }
