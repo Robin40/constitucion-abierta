@@ -115,7 +115,7 @@ function choropleth_layer(locations) {
         const sortedDensities = R.sort(R.substract, densities);
         const densityMedians = medians(parts, sortedDensities);
 
-        const concept = $('#concept').val();
+        const concept = get_concept();
 
         function style(feature) {
             const id = +feature.properties.tags['dpachile:id'];

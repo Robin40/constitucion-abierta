@@ -1,3 +1,7 @@
+function get_concept() {
+    return capitalized_first($('#concept').val());
+}
+
 function update_map(get_layer, map, locations) {
     return get_layer(locations).then(layer => {
         show_overlay(layer, map);
@@ -24,7 +28,7 @@ function info_group_html(attr, value) {
 }
 
 function info_html(info) {
-    const concept = $('#concept').val();
+    const concept = get_concept();
     const attrs = [
         'Visualización a nivel nacional',
         'Concepto:',
@@ -50,16 +54,18 @@ function info_html(info) {
 }
 
 function update_info(locations) {
-    const concept = $('#concept').val();
+    const concept = get_concept();
     $('#map-caption').html(map_caption_html(concept));
     $('#info').html(info_html(locations_info(locations)));
     $('#contextual-help').html(`Haz click en una comuna para ver los ELAs
         que mencionan <span class="strong">"${concept}"</span>
         y sus fundamentos`);
+    $('#fundaments-nav').empty();
+    $('#fundament-list').empty();
 }
 
 function update_vis(mapChile, map) {
-    const concept = $('#concept').val();
+    const concept = get_concept();
 
     return concept_locations(concept).then(locations => Promise.all([
         update_map(boolean_heatmap_layer, mapChile, locations),
