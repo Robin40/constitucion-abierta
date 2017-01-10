@@ -8,12 +8,45 @@ function map_caption_html(concept) {
     return `Visualización del concepto
         <span class="strong"><b>"${concept}"</b></span>`;
 }
-
+/*
 function info_html(info) {
     return `<b>Número de ubicaciones</b>: ${info.numUbicaciones}<br>
         ${info.acuerdos.A} <b>acuerdos</b>,
         ${info.acuerdos.P} <b>ac. parciales</b> y
         ${info.acuerdos.D} <b>desacuerdos</b>`;
+}
+*/
+function info_group_html(attr, value) {
+    const inner = value == null ?
+        attr : `<div class="attr">${attr}</div>
+            <div class="value">${value}</div>`;
+    return `<div class="info-group">${inner}</div>`;
+}
+
+function info_html(info) {
+    const concept = $('#concept').val();
+    const attrs = [
+        'Visualización a nivel nacional',
+        'Concepto:',
+        'Núm. menciones:',
+        'Acuerdos:',
+        'Ac. parciales:',
+        'Desacuerdos:'
+    ];
+    const values = [
+        null,
+        //`<div class="strong small truncated">${concept}</div>`,
+        `<div title="${concept}" class="strong small truncated">
+            ${concept}</div>`,
+        info.numUbicaciones || 0,
+        info.acuerdos.A || 0,
+        info.acuerdos.P || 0,
+        info.acuerdos.D || 0
+    ];
+    const info_groups = R.range(0, attrs.length).map(i =>
+        info_group_html(attrs[i], values[i]));
+
+    return info_groups.join('');
 }
 
 function update_info(locations) {

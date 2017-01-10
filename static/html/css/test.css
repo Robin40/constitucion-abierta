@@ -90,7 +90,12 @@ hr {
 
 }
 
-/*@media all and (orientation:portrait) {*/
+#info-widget {
+    border: 1px solid #ddd;
+    margin: 0 1vw;
+}
+
+@media all and (orientation:portrait) {
     #map-and-info {
         display: flex;
         flex-direction: column;
@@ -107,8 +112,17 @@ hr {
         display: flex;
         flex-direction: column;
     }
-/*}*/
-/*
+
+    .info-group {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .value {
+        
+    }
+}
+
 @media all and (orientation:landscape) {
     #map-and-info {
         display: flex;
@@ -127,9 +141,22 @@ hr {
         height: 65vh;
         display: flex;
         flex-direction: column;
+        flex-shrink: 0;
+        font-size: medium;
+    }
+
+    #info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .info-group {
+        display: flex;
+        flex-direction: column;
     }
 }
-*/
+
 #info {
     height: 100%;
     overflow-y: auto;
@@ -152,7 +179,7 @@ hr {
         font-size: medium;
     }
 
-    #fundament-list {
+    .small {
         font-size: small;
     }
 }
@@ -162,7 +189,7 @@ hr {
         font-size: small;
     }
 
-    #fundament-list {
+    .small {
         font-size: x-small;
     }
 }
@@ -172,7 +199,7 @@ hr {
         font-size: x-small;
     }
 
-    #fundament-list {
+    .small {
         font-size: xx-small;
     }
 }
@@ -216,16 +243,12 @@ hr {
     }
 }*/
 
-.attribute {
-    display: inline-block;
-}
-
-.percentage {
-    display: inline-block;
+.attr {
+    font-weight: bold;
 }
 
 .value {
-    display: inline-block;
+    
 }
 
 .ui-autocomplete {
