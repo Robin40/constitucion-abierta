@@ -71,7 +71,7 @@ const white_black = chroma.scale(['#ffffff', '#000000']);
 const white_blue = chroma.scale(['#ffffff', '#0000a0']);
 
 //const communes_geojson = json('Chile_AL8.GeoJson');
-const communes_geojson = zipped_json('Chile_AL8.min.zip');
+const communes_geojson = zipped_json('static/html/data/Chile_AL8.min.zip');
 
 function medians(parts, sortedArray) {
     const n = sortedArray.length;

@@ -72,18 +72,18 @@ function clean_concepts_list_row(d) {
 const groupProp = R.compose(R.groupBy, R.prop);
 const indexProp = R.compose(R.indexBy, R.prop);
 
-const _concept = zipped_csv('viz_conceptos.zip')
+const _concept = zipped_csv('static/html/data/viz_conceptos.zip')
     .then(R.compose(groupProp('concept'), R.map(clean_concept_row)));
 
-const _ela = csv('viz_elas.csv')
+const _ela = csv('static/html/data/viz_elas.csv')
     .then(R.compose(indexProp('idEla'), R.map(clean_ela_row)));
 
-const _viz_comunas = csv('viz_comunas.csv');
+const _viz_comunas = csv('static/html/data/viz_comunas.csv');
 
 const _commune = _viz_comunas.then(indexProp('nombre'));
 const _communeById = _viz_comunas.then(indexProp('id'));
 
-const _concepts_list = csv('viz_lista_conceptos.csv')
+const _concepts_list = csv('static/html/data/viz_lista_conceptos.csv')
 	.then(R.compose(indexProp('concept'), R.map(clean_concepts_list_row)));
 
 function NullPropException(prop) {
