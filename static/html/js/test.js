@@ -114,7 +114,7 @@ $(function () {
         }).data('ui-autocomplete')._renderItem = function(ul, item) {
             const concept = item.value;
             const html = `<li><span>
-                <span style="width:7em; display:table-cell" class="strong">
+                <span style="width:6em; display:table-cell" class="strong">
                     ${tema_name(d[concept].tema)}</span>
                 ${concept}
             </span></li>`;

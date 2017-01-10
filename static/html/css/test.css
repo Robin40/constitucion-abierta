@@ -31,15 +31,22 @@ hr {
 
 #nav {
     flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #title {
     display: inline-block;
+    font-size: large;
+}
+
+.subtitle {
+
 }
 
 #nav form {
-    display: inline-block;
-    float: right;
+    flex-shrink: 0;
 }
 
 #footer {
@@ -119,7 +126,7 @@ hr {
     }
 
     .value {
-        
+
     }
 }
 

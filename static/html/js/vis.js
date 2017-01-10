@@ -157,11 +157,14 @@ function choropleth_layer(locations) {
 
         function fundaments_nav_html(id) {
             const commune = byId(id);
-            return `Encuentros Locales Autoconvocados para la comuna
+            /*return `Encuentros Locales Autoconvocados para la comuna
                 <span class="strong">"${commune.nombre}"</span>
                 con concepto
                 <span class="strong">"${concept}"</span>
-                `;
+                `;*/
+            return `<span class="strong">"${concept}":</span>
+                ELAs que lo mencionan en la comuna de
+                <span class="strong">"${commune.nombre}"</strong>`;
         }
 
         function location_info(d) {

@@ -161,10 +161,10 @@ function locations_info(locations) {
 }
 
 const _tema_name = {
-	'1': 'Valores',
-	'2': 'Derechos',
-	'3': 'Deberes',
-	'4': 'Instituciones'
+	'1': 'Valor',
+	'2': 'Derecho',
+	'3': 'Deber',
+	'4': 'Institución'
 };
 function tema_name(tema) {
 	return _tema_name[tema];
