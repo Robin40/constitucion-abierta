@@ -219,6 +219,7 @@ function choropleth_layer(locations) {
                     ${rows.join('')}</tbody></table>`;
                 $('#fundaments-nav').html(fundaments_nav_html(id));
                 $('#fundament-list').html(table);
+                $('#contextual-help').html('');
             })
         );
     });

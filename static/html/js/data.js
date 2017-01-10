@@ -50,8 +50,12 @@ function clean_ela_row(d) {
 	};
 }
 
-const clean_concept = concept =>
-	concept.replace(/__/g, ', ').replace(/_/g, ' ');
+function capitalized_first(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+const clean_concept = concept => capitalized_first(
+	concept.replace(/__/g, ', ').replace(/_/g, ' '));
 
 function clean_concept_row(d) {
 	return {

@@ -53,6 +53,9 @@ function update_info(locations) {
     const concept = $('#concept').val();
     $('#map-caption').html(map_caption_html(concept));
     $('#info').html(info_html(locations_info(locations)));
+    $('#contextual-help').html(`Haz click en una comuna para ver los ELAs
+        que mencionan <span class="strong">"${concept}"</span>
+        y sus fundamentos`);
 }
 
 function update_vis(mapChile, map) {
