@@ -87,7 +87,7 @@
                     <input type="text" name="concept" id="concept" class="form-control" value="">
                 </label>
                 <input id="update-vis" type="submit" class="btn btn-primary btn-sm" value="Visualizar">
-                <button id="examples" type="button" class="btn btn-default btn-sm">Ver Lista de Conceptos</button>
+                <button type="button" class="btn btn-default btn-sm examples">Ver Lista de Conceptos</button>
             </form>
         </div>
         <div id="map-and-info">
@@ -104,9 +104,21 @@
     <div id="fundaments-widget">
         <div id="fundaments-nav" class="not-so-small truncated"></div>
         <div id="fundament-list" class="small">
-            Visualiza un concepto y luego haz click en una comuna coloreada para ver los Encuentros Locales Autoconvocados en esa comuna en que lo mencionan.
+            <div style="font-size:medium; overflow-y: hidden;">
+                <!--Visualiza un concepto y luego haz click en una comuna coloreada para ver los Encuentros Locales Autoconvocados en esa comuna en que lo mencionan.-->
+                Escribe un concepto para visualizar los Encuentros Locales que lo mencionan, o elige uno desde la <a class="examples">Lista de Conceptos</a>
+            </div>
         </div>
     </div>
 </div>
-</div></body>
+</div>
+
+<div id="concepts-list-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p style="font-size: 30vh;"> &#x1f431;</p>
+    </div>
+</div>
+
+</body>
 </html>

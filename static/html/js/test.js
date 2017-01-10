@@ -36,7 +36,7 @@ function info_html(info) {
     const values = [
         null,
         //`<div class="strong small truncated">${concept}</div>`,
-        `<div title="${concept}" class="strong small truncated">
+        `<div title="${concept}" class="strong not-so-small">
             ${concept}</div>`,
         info.numUbicaciones || 0,
         info.acuerdos.A || 0,
@@ -81,6 +81,23 @@ function init_switch(mapChile, map, mapId, divId) {
     return $switch;
 }
 
+function init_modal(modalId, buttonSel) {
+    const $modal = $(`#${modalId}`);
+
+    $(buttonSel).on('click', function() {
+        $modal.css('display', 'block');
+    });
+
+    $('.close').on('click', function() {
+        $modal.css('display', 'none');
+    });
+
+    $(window).on('click', function(event) {
+        if (event.target == $modal[0])
+            $modal.css('display', 'none');
+    });
+}
+
 $(function () {
     const chile = L.latLng(-37.020664, -71.341087);
     //const santiago = L.latLng(-33.453289, -70.8189348);
@@ -91,6 +108,8 @@ $(function () {
     const mapChile = init_map(chile, 4, 'map-chile');
     const map = init_map(vitacura, 10, 'map');
     //const $switch = init_switch(mapChile, map, 'map', 'map-vis-mode-widget');
+
+    init_modal('concepts-list-modal', '.examples');
 
     /* visualize */
     $('#concept-search').on('submit', function() {

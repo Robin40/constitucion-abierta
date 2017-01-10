@@ -17,7 +17,6 @@ function zipped_file(file) {
 			err ? reject(err) : resolve(data)))
 	.then(JSZip.loadAsync).then(zip => {
 		const innerFile = Object.values(zip.files)[0].name;
-		console.log('innerFile', innerFile);
 		return zip.file(innerFile).async('string');
 	});
 }
