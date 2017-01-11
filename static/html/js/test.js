@@ -30,7 +30,7 @@ function info_group_html(attr, value) {
 function info_html(info) {
     const concept = get_concept();
     const attrs = [
-        `<div title="${concept}" class="strong not-so-small">
+        `<div title="${concept}" class="strong adaptable-large">
             ${concept}</div>`,
         'Menciones totales a nivel nacional',
         'Acuerdos',
@@ -39,7 +39,7 @@ function info_html(info) {
     ];
     const values = [
         null,
-        info.numUbicaciones || 0,
+        `<div style="font-size:larger">${info.numUbicaciones || 0}</div>`,
         info.acuerdos.A || 0,
         info.acuerdos.P || 0,
         info.acuerdos.D || 0
@@ -147,7 +147,15 @@ $(function () {
             },
             autoFocus: true,
             delay: 0,
+            select: function(event, ui) { 
+                $("#concept").val(ui.item.label);
+                $("#concept-search").submit();
+            }
 
+        /* select text on focus */
+        }).on('mouseup', function() {
+              $(this).select();
+        
         /* tema extension */
         }).data('ui-autocomplete')._renderItem = function(ul, item) {
             const concept = item.value;
