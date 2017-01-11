@@ -89,6 +89,10 @@ function init_switch(mapChile, map, mapId, divId) {
     return $switch;
 }
 
+function close_modal() {
+    $('.modal').css('display', 'none');
+}
+
 function init_modal(modalId, buttonSel) {
     const $modal = $(`#${modalId}`);
 
@@ -97,7 +101,7 @@ function init_modal(modalId, buttonSel) {
     });
 
     $('.close').on('click', function() {
-        $modal.css('display', 'none');
+        close_modal();
     });
 
     $(window).on('click', function(event) {
@@ -129,6 +133,7 @@ $(function () {
     data.concepts_list().then(d => {
         const concepts = Object.keys(d);
 
+        /* basic autocomplete */
         $('#concept').autocomplete({
             maxResults: 10,
             source: function(request, response) {
@@ -138,6 +143,7 @@ $(function () {
             autoFocus: true,
             delay: 0,
 
+        /* tema extension */
         }).data('ui-autocomplete')._renderItem = function(ul, item) {
             const concept = item.value;
             const html = `<li><span>
@@ -151,5 +157,29 @@ $(function () {
 
             return $(html).data('item.autocomplete', item).appendTo(ul);
         };
+
+        /* populate concepts-list modal */
+        const of_tema = tema => R.filter(concept => d[concept].tema == tema,
+            concepts).sort().map(concept =>
+                `<a class="concept-link">${concept}</a>`).join('<br>');
+
+        $('#concepts-list').html(`<table><thead><tr>
+            <th>Valores</th>
+            <th>Derechos</th>
+            <th>Deberes</th>
+            <th>Instituciones</th>
+        </tr></thead><tbody><tr>
+            <td style="vertical-align:top">${of_tema(1)}</td>
+            <td style="vertical-align:top">${of_tema(2)}</td>
+            <td style="vertical-align:top">${of_tema(3)}</td>
+            <td style="vertical-align:top">${of_tema(4)}</td>
+        </tr></tbody></table>`);
+
+        $('.concept-link').on('click', function() {
+            const concept = $(this).text();
+            close_modal();
+            $('#concept').val(concept);
+            $('#concept-search').submit();
+        });
     });
 });
