@@ -22,8 +22,8 @@ function info_html(info) {
 */
 function info_group_html(attr, value) {
     const inner = value == null ?
-        attr : `<div class="attr">${attr}</div>
-            <div class="value">${value}</div>`;
+        attr : `<div class="attr adaptable-large">${attr}</div>
+            <div class="value adaptable-large">${value}</div>`;
     return `<div class="info-group">${inner}</div>`;
 }
 

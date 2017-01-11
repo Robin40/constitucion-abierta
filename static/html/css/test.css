@@ -153,8 +153,7 @@ hr {
     }
 
     #info {
-        display: flex;
-        flex-direction: column;
+        overflow-y: auto;
         margin-left: 0.5em;
         margin-right: 0.5em;
         margin-top: 0.5em;
@@ -185,6 +184,10 @@ hr {
 }
 
 @media all and (min-width:1000px) {
+    .adaptable-large {
+        font-size: large;
+    }
+
     .not-so-small {
         font-size: medium;
     }
@@ -195,6 +198,10 @@ hr {
 }
 
 @media all and (max-width:999px) {
+    .adaptable-large {
+        font-size: medium;
+    }
+
     .not-so-small {
         font-size: small;
     }
@@ -205,6 +212,10 @@ hr {
 }
 
 @media all and (max-width:499px) {
+    .adaptable-large {
+        font-size: small;
+    }
+
     .not-so-small {
         font-size: x-small;
     }
