@@ -65,14 +65,14 @@
 <body><div id="body">
 <div id="nav">
     <div id="title">
-        <span class="strong">Constitución Abierta:</span>
+        <a href="http://constitucionabierta.cl/" class="strong">Constitución Abierta:</a>
         <span class="subtitle">
             Explorador de Conceptos Constitucionales
         </span>
     </div>
     <form action="javascript:void(0)">
-        <button id="help" type="button" class="btn btn-default btn-sm">Instrucciones</button>
-        <button id="about-us" type="button" class="btn btn-default btn-sm">Quiénes somos</button>
+        <button id="help" type="button" class="btn btn-info btn-sm">Instrucciones</button>
+        <button id="about-us" class="btn btn-default btn-sm">Quiénes somos</button>
     </form>
 </div>
 
@@ -117,9 +117,23 @@
         <span class="close">&times;</span>
         <!--<p style="font-size: 30vh;"> &#x1f431;</p>-->
         <p>Elige un concepto constitucional, o escríbelo directamente en el cuadro de texto</p>
-        <div id="concepts-list">
-            Cargando información...
-        </div>
+        <div id="concepts-list">Cargando información...</div>
+    </div>
+</div>
+
+<div id="help-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>&#x1f431; Instrucciones</h2>
+        <p>Escribe un concepto constitucional en el campo de texto de la parte superior izquierda de la pantalla y presiona visualizar (o bien elige un concepto de entre la <a class="examples">Lista de Conceptos</a>). Después de elegir un concepto, podrás ver lo siguiente:</p>
+        <ul>
+            <li>En el mapa de Chile de la izquierda aparecerá una visualización de calor indicando los lugares donde se mencionó ese concepto.</li>
+            <li>A la derecha aparecerá un cuadro de información indicando un resumen de los Encuentros Locales Autoconvocados (ELAs) que mencionaron ese concepto.</li>
+            <li>En el mapa central aparecerán las comunas con colores que indican qué tan importante es el concepto para esa comuna *.</li>
+        </ul>
+        <p>Luego podrás hacer click en una comuna para ver el detalle de los ELAs que mencionaron el concepto, incluyendo información de los participantes, el nivel de acuerdo, y los fundamentos que se indicaron para ese concepto. Puedes también seguir un link para ver el acta completa de ese ELA en el sitio oficial del gobierno.</p>
+        <p>En cualquier momento puedes comenzar otra vez eligiendo un nuevo concepto constitucional para visualizar. Si tienes alguna duda escríbenos a <a href="mailto:constitucionabierta@gmail.com?Subject=Duda%20Explorador%20de%20Conceptos%20Constitucionales" target="_blank">constitucionabierta@gmail.com</a>.</p>
+        <p style="font-size:smaller">* La intensidad del color depende del porcentaje de ELAs que mencionaron ese concepto dentro de la comuna. Mientras más alto es el porcentaje, más oscuro es el color.</p>
     </div>
 </div>
 

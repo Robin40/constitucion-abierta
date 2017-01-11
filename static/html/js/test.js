@@ -97,6 +97,7 @@ function init_modal(modalId, buttonSel) {
     const $modal = $(`#${modalId}`);
 
     $(buttonSel).on('click', function() {
+        close_modal();
         $modal.css('display', 'block');
     });
 
@@ -122,6 +123,12 @@ $(function () {
     //const $switch = init_switch(mapChile, map, 'map', 'map-vis-mode-widget');
 
     init_modal('concepts-list-modal', '.examples');
+    init_modal('help-modal', '#help');
+
+    /* about-us */
+    $('#about-us').on('click', function() {
+        window.open('http://constitucionabierta.cl/quienes/', '_blank');
+    });
 
     /* visualize */
     $('#concept-search').on('submit', function() {
