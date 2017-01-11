@@ -30,16 +30,14 @@ function info_group_html(attr, value) {
 function info_html(info) {
     const concept = get_concept();
     const attrs = [
-        '<span style="font-weight:normal">Visualizando Concepto</span>',
-        'A nivel nacional',
-        'Núm. menciones',
+        `<div title="${concept}" class="strong not-so-small">
+            ${concept}</div>`,
+        'Menciones totales a nivel nacional',
         'Acuerdos',
         'Ac. parciales',
         'Desacuerdos'
     ];
     const values = [
-        `<div title="${concept}" class="strong not-so-small">
-            ${concept}</div>`,
         null,
         info.numUbicaciones || 0,
         info.acuerdos.A || 0,
