@@ -30,8 +30,8 @@ function info_group_html(attr, value) {
 function info_html(info) {
     const concept = get_concept();
     const attrs = [
-        `<div title="${concept}" class="strong adaptable-large">
-            ${concept}</div>`,
+        $('<div class="strong adaptable-large">').prop('title', concept)
+            .text(concept)[0].outerHTML,
         'Menciones totales a nivel nacional',
         'Acuerdos',
         'Ac. parciales',

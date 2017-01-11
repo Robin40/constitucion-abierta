@@ -175,6 +175,13 @@ function choropleth_layer(locations) {
                 A: 'Acuerdo', P: 'Parcial', D: 'Desacuerdo'
             }[d.acuerdo];
 
+            const fundamentCell = $('<td style="min-width:32em">')
+                .prop('title', d.fundament)
+                .append($('<table class="fixed-table">')
+                    .append($('<tr>')
+                        .append($('<td class="truncated">')
+                            .text(d.fundament))));
+
             return `<tr><td style="text-align:center">
                 <a target="_blank"
                 href="http://actas-encuentros-locales.unaconstitucion` +
@@ -191,11 +198,9 @@ function choropleth_layer(locations) {
                 &#9794;
             </td><td style="text-align:center; padding:1px 1em">
                 ${acuerdo}
-            </td><td title="${d.fundament}" style="min-width:32em">
-                <table class="fixed-table"><tr><td class="truncated">
-                    ${d.fundament}
-                </td></tr></table>
-            </td></tr>`;
+            </td>
+                ${fundamentCell[0].outerHTML}
+            </tr>`;
         }
 
         const thead = `<thead><tr>
