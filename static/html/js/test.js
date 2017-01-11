@@ -125,7 +125,7 @@ $(function () {
 
     /* about-us */
     $('#about-us').on('click', function() {
-        window.open('http://constitucionabierta.cl/quienes/');
+        window.open('http://constitucionabierta.cl/quienes/', '_self');
     });
 
     /* visualize */
