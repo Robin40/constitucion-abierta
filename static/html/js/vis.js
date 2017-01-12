@@ -93,7 +93,7 @@ function bs_last(pred, sortedArray) {
 const elvisified = obj => prop => obj[prop] != null ? obj[prop] : {};
 
 function choropleth_layer(locations) {
-    const parts = 7;
+    const parts = 6;
 
     function get_groupById(locations) {
         return data.commune().then(_D => {
@@ -120,8 +120,10 @@ function choropleth_layer(locations) {
         function style(feature) {
             const id = +feature.properties.tags['dpachile:id'];
             const part = bs_last(m =>
-                m <= densityById[id], densityMedians);
-            const intensity = part/(parts - 1);
+                m <= densityById[id], densityMedians) + 1;
+            //const intensity = part/(parts - 1);
+            console.assert(part !== -1);
+            const intensity = countById[id] ? (part + 1)/parts : 0;
 
             const color = white_blue(intensity).hex();
             const alpha = .7; //lerp(.4, 1, intensity);
