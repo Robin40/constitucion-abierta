@@ -175,7 +175,7 @@ $(function () {
         /* populate concepts-list modal */
         const of_tema = tema => R.filter(concept => d[concept].tema == tema,
             concepts).sort().map(concept =>
-                `<a class="concept-link">${concept}</a>`).join('<br>');
+                `<a href="#" class="concept-link">${concept}</a>`).join('<br>');
 
         $('#concepts-list').html(`<table><thead><tr>
             <th>Valores</th>
