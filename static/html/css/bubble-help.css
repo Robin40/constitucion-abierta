@@ -6,7 +6,6 @@
 .help-bubble {
   position: absolute;
   width: 9999px;
-  overflow-x: hidden;
 }
 
 .help-triangle {
