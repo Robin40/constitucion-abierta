@@ -109,6 +109,11 @@ function init_modal(modalId, buttonSel) {
     });
 }
 
+function hide_bubbles(bubblesTimers) {
+    bubblesTimers.map(timer => clearTimeout(timer));
+    $('.help-bubble').hide();
+}
+
 $(function () {
     const chile = L.latLng(-37.020664, -71.341087);
     //const santiago = L.latLng(-33.453289, -70.8189348);
@@ -123,6 +128,14 @@ $(function () {
     init_modal('concepts-list-modal', '.examples');
     init_modal('help-modal', '#help');
 
+    /* bubble-help timed sequence */
+    const bubbleSeq = [
+        'concept-bubble-help',
+           'list-bubble-help',
+           'help-bubble-help'];
+    const bubblesTimers = bubbleSeq.map((id, i) =>
+        setTimeout(() => $(`#${id} .help-bubble`).show(), i*2000));
+
     /* about-us */
     $('#about-us').on('click', function() {
         window.open('http://constitucionabierta.cl/quienes/', '_self');
@@ -131,7 +144,7 @@ $(function () {
     /* visualize */
     $('#concept-search').on('submit', function() {
         $('#update-vis').prop('disabled', true);
-        $('.help-bubble').hide();
+        hide_bubbles(bubblesTimers);
         update_vis(mapChile, map);
     });
 

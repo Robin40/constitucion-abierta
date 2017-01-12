@@ -5,6 +5,7 @@
 
 .help-bubble {
   position: absolute;
+  display: none;
   width: 9999px;
 }
 
