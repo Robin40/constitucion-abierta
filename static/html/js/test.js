@@ -131,6 +131,7 @@ $(function () {
     /* visualize */
     $('#concept-search').on('submit', function() {
         $('#update-vis').prop('disabled', true);
+        $('.help-bubble').hide();
         update_vis(mapChile, map);
     });
 

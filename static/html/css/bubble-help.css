@@ -1,0 +1,40 @@
+.bubble-help {
+  position: relative;
+  display: inline-block;
+}
+
+.help-bubble {
+  position: absolute;
+  width: 9999px;
+}
+
+.help-triangle {
+  position: absolute;
+  left: 1.5em;
+  width: .8em;
+  height: .8em;
+  border-top: 2px solid DeepSkyBlue;
+  border-left: 2px solid DeepSkyBlue;
+  background-color: LightCyan;
+  -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+  z-index: 5998;
+}
+
+.help-rectangle {
+  position: absolute;
+  top: calc(.4em - 1px);
+  border: 2px solid DeepSkyBlue;
+  border-radius: 4px;
+  background-color: LightCyan;
+  z-index: 5997;
+  padding: .2em .5em;
+}
+
+.help-content {
+  position: relative;
+  display: inline-block;
+}
