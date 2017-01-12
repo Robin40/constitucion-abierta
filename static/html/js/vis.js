@@ -225,6 +225,8 @@ function choropleth_layer(locations) {
                 $('#fundaments-nav').html(fundaments_nav_html(id));
                 $('#fundament-list').html(table);
                 $('#contextual-help').html('');
+
+                _userUnderstandsCommunes = true;
             })
         );
     });

@@ -128,6 +128,8 @@ $(function () {
     init_modal('concepts-list-modal', '.examples');
     init_modal('help-modal', '#help');
 
+    _userUnderstandsCommunes = false;
+
     /* bubble-help timed sequence */
     const bubbleSeq = [
         'concept-bubble-help',
