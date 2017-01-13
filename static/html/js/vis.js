@@ -229,6 +229,7 @@ function choropleth_layer(locations) {
                 $('#contextual-help').html('');
 
                 _userUnderstandsCommunes = true;
+                hide_bubbles();
             })
         );
     });

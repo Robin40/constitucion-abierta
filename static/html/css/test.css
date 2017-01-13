@@ -127,6 +127,10 @@ hr {
     .value {
 
     }
+
+    .landscape-only {
+        display: none;
+    }
 }
 
 @media all and (orientation:landscape) {
@@ -162,6 +166,10 @@ hr {
         display: flex;
         flex-direction: column;
         margin-bottom: 1em;
+    }
+
+    .portrait-only {
+        display: none;
     }
 }
 

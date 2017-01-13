@@ -54,9 +54,11 @@ function update_info(locations) {
     const concept = get_concept();
     $('#map-caption').html(map_caption_html(concept));
     $('#info').html(info_html(locations_info(locations)));
-    $('#contextual-help').html(`Haz click en una comuna para ver los ELAs
+    $('#contextual-help')/*html(`Haz click en una comuna para ver los ELAs
         que mencionan <span class="strong">"${concept}"</span>
-        y sus fundamentos`);
+        y sus fundamentos`)*/.empty();
+    if (!_userUnderstandsCommunes)
+        $('#commune-bubble-help .help-bubble').show();
     $('#fundaments-nav').empty();
     $('#fundament-list').empty();
 }
@@ -110,7 +112,8 @@ function init_modal(modalId, buttonSel) {
 }
 
 function hide_bubbles(bubblesTimers) {
-    bubblesTimers.map(timer => clearTimeout(timer));
+    if (bubblesTimers != null)
+        bubblesTimers.map(timer => clearTimeout(timer));
     $('.help-bubble').hide();
 }
 
