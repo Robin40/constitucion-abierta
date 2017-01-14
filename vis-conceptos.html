@@ -1,191 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constitución Abierta - Explorador de Conceptos Constitucionales</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constitución Abierta - Explorador de Conceptos Constitucionales</title>
 
-    <!-- for Facebook -->          
-    <meta property="og:title" content="Constitución Abierta" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="http://constitucionabierta.cl/static/html/ca2017.png" />
-    <meta property="og:url" content="http://constitucionabierta.cl" />
-    <meta property="og:description" content="Todos los datos del proceso constituyente deben ser públicos y de libre acceso." />
+  <!-- for Facebook -->          
+  <meta property="og:title" content="Constitución Abierta" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://constitucionabierta.cl/static/html/ca2017.png" />
+  <meta property="og:url" content="http://constitucionabierta.cl" />
+  <meta property="og:description" content="Todos los datos del proceso constituyente deben ser públicos y de libre acceso." />
 
-    <!-- for Twitter -->          
-    <meta name="twitter:image" content="http://constitucionabierta.cl/static/html/ca2017.png" />
-    <meta name="twitter:url" content="http://constitucionabierta.cl" />
-    <meta name="twitter:title" content="Constitución Abierta" />
-    <meta name="twitter:description" content="Todos los datos del proceso constituyente deben ser públicos y libres de acceso." />  
-    <meta name="twitter:creator" content="@constabierta" />
-    <meta name="twitter:card" content="summary" />
+  <!-- for Twitter -->          
+  <meta name="twitter:image" content="http://constitucionabierta.cl/static/html/ca2017.png" />
+  <meta name="twitter:url" content="http://constitucionabierta.cl" />
+  <meta name="twitter:title" content="Constitución Abierta" />
+  <meta name="twitter:description" content="Todos los datos del proceso constituyente deben ser públicos y libres de acceso." />  
+  <meta name="twitter:creator" content="@constabierta" />
+  <meta name="twitter:card" content="summary" />
 
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
-    <script
-            src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
-            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-            crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" integrity="sha384-xewr6kSkq3dBbEtB6Z/3oFZmknWn7nHqhLVLrYgzEFRbU/DHSxW7K3B44yWUN60D" crossorigin="anonymous">
+  <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+  <script
+      src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css" integrity="sha256-9mfj77orHLh2GsN7CbMvpjO/Wny/ZZhR7Pu7hy0Yig4=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js" integrity="sha256-RS5bDpN9YmmUIdtdu8ESPjNp1Bg/Fqu90PwN3uawdSQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/build/heatmap.min.js" integrity="sha384-BlRWQS67hrnZlggSB+aRUTIWyxdjmsWxRnta6UvociBjKrx7/QuODVy7TJ0ov3Pi" crossorigin="anonymous"></script>
-    <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/plugins/leaflet-heatmap/leaflet-heatmap.js" integrity="sha384-ESukGjjBJ6nEQRjf11255R+aoFfSlMijWjZSVjfT6fZUDTVrpgFxxXl0lV9znWOJ" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css" integrity="sha256-9mfj77orHLh2GsN7CbMvpjO/Wny/ZZhR7Pu7hy0Yig4=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js" integrity="sha256-RS5bDpN9YmmUIdtdu8ESPjNp1Bg/Fqu90PwN3uawdSQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/build/heatmap.min.js" integrity="sha384-BlRWQS67hrnZlggSB+aRUTIWyxdjmsWxRnta6UvociBjKrx7/QuODVy7TJ0ov3Pi" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/pa7/heatmap.js/master/plugins/leaflet-heatmap/leaflet-heatmap.js" integrity="sha384-ESukGjjBJ6nEQRjf11255R+aoFfSlMijWjZSVjfT6fZUDTVrpgFxxXl0lV9znWOJ" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="/static/html/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="/static/html/dist/MarkerCluster.Default.css" />
-    <script src="/static/html/dist/leaflet.markercluster-src.js"></script>
+  <link rel="stylesheet" href="/static/html/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="/static/html/dist/MarkerCluster.Default.css" />
+  <script src="/static/html/dist/leaflet.markercluster-src.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.23.0/ramda.min.js" integrity="sha256-mt1UGc/VNqNBxZWrdgAnSgl33zLTGWQv+7pxe1nG6CU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.23.0/ramda.min.js" integrity="sha256-mt1UGc/VNqNBxZWrdgAnSgl33zLTGWQv+7pxe1nG6CU=" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js" integrity="sha384-LRcQ1rF33N7nWgsOpcH+PeQkyDX3RBvyUJTYNXs6OMMYh/aFwhq7Ly8BQ99U0oaC" crossorigin="anonymous"></script>
+  <script src="https://cdn.plot.ly/plotly-1.2.0.min.js" integrity="sha384-LRcQ1rF33N7nWgsOpcH+PeQkyDX3RBvyUJTYNXs6OMMYh/aFwhq7Ly8BQ99U0oaC" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.2.1/chroma.min.js" integrity="sha384-B0Ii+BsiaaxUT8WfMGGm0aMJTLRmCAtDaLxBbEryv4CybDMs+s1L4h6XC/e1Aq5k" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.2.1/chroma.min.js" integrity="sha384-B0Ii+BsiaaxUT8WfMGGm0aMJTLRmCAtDaLxBbEryv4CybDMs+s1L4h6XC/e1Aq5k" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.4.7/bluebird.min.js" integrity="sha256-ub+g/NI4m6dSDdm4RTNhaLvBDZhqp9C+fdw0bAEp0KE=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.4.7/bluebird.min.js" integrity="sha256-ub+g/NI4m6dSDdm4RTNhaLvBDZhqp9C+fdw0bAEp0KE=" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" integrity="sha256-RbP/rbx4XeYJH6eYUniR63Jk5NEV48Gjestg49cNSWY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" integrity="sha256-RbP/rbx4XeYJH6eYUniR63Jk5NEV48Gjestg49cNSWY=" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.min.js" integrity="sha256-AIk6chbus7IS5RVpqSNV1X7Qihbi1YC0lOLuUXQZ+mw=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.min.js" integrity="sha256-AIk6chbus7IS5RVpqSNV1X7Qihbi1YC0lOLuUXQZ+mw=" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js" integrity="sha256-4mL8TQfOJSbg0f42dQw5cKLl2ngQXUSXqfQnvK11M44=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js" integrity="sha256-4mL8TQfOJSbg0f42dQw5cKLl2ngQXUSXqfQnvK11M44=" crossorigin="anonymous"></script>
 
-    <script src="https://use.fontawesome.com/9c241a935f.js"></script>
+  <script src="https://use.fontawesome.com/9c241a935f.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/static/html/css/test.css">
-    <link rel="stylesheet" href="/static/html/css/bubble-help.css">
-    <script src="/static/html/js/data.js"></script>
-    <script src="/static/html/js/vis.js"></script>
-    <script src="/static/html/js/test.js"></script>
+  <link rel="stylesheet" href="/static/html/css/test.css">
+  <link rel="stylesheet" href="/static/html/css/bubble-help.css">
+  <script src="/static/html/js/data.js"></script>
+  <script src="/static/html/js/vis.js"></script>
+  <script src="/static/html/js/test.js"></script>
 </head>
 <body><div id="body">
 <div id="nav">
-    <div id="title">
-        <a href="http://constitucionabierta.cl/" class="strong">Constitución Abierta:</a>
-        <span class="subtitle">
-            Explorador de Conceptos Constitucionales
-        </span>
-    </div>
-    <form action="javascript:void(0)">
-        <div class="bubble-help not-so-small" id="help-bubble-help">
-          <button id="help" type="button" class="btn btn-info btn-sm">Instrucciones
-          </button>
-          <div class="help-bubble">
-            <div class="help-triangle"></div>
-            <div class="help-rectangle">
-              <div class="help-content">
-                También puedes leer<br>las instrucciones acá
-              </div>
-            </div>
-          </div>
+  <div id="title">
+    <a href="http://constitucionabierta.cl/" class="strong">Constitución Abierta:</a>
+    <span class="subtitle">
+      Explorador de Conceptos Constitucionales
+    </span>
+  </div>
+  <form action="javascript:void(0)">
+    <div class="bubble-help not-so-small" id="help-bubble-help">
+      <button id="help" type="button" class="btn btn-info btn-sm">Instrucciones
+      </button>
+      <div class="help-bubble">
+      <div class="help-triangle"></div>
+      <div class="help-rectangle">
+        <div class="help-close">&times;</div>
+        <div class="help-content">
+        También puedes leer<br>las instrucciones acá
         </div>
-        <button id="about-us" class="btn btn-default btn-sm">Quiénes somos</button>
-    </form>
+      </div>
+      </div>
+    </div>
+    <button id="about-us" class="btn btn-default btn-sm">Quiénes somos</button>
+  </form>
 </div>
 
 <div id="content">
-    <div id="map-chile-widget" class="map-widget">
-        <div id="map-chile" class="map"></div>
-    </div>
-    <div id="concepts-widget">
-        <div id="concept-search">
-            <form id="concept-form" action="javascript:void(0)">
-            <div class="bubble-help adaptable-large" id="concept-bubble-help">
-              <label>
-                <input type="text" name="concept" id="concept" class="form-control" value="">
-              </label>
-              <div class="help-bubble">
-                <div class="help-triangle"></div>
-                <div class="help-rectangle">
-                  <div class="help-content">
-                    Comienza escribiendo<br>un concepto
-                  </div>
-                </div>
-              </div>
+  <div id="map-chile-widget" class="map-widget">
+    <div id="map-chile" class="map"></div>
+  </div>
+  <div id="concepts-widget">
+    <div id="concept-search">
+      <form id="concept-form" action="javascript:void(0)">
+      <div class="bubble-help adaptable-large" id="concept-bubble-help">
+        <label>
+        <input type="text" name="concept" id="concept" class="form-control" value="">
+        </label>
+        <div class="help-bubble">
+        <div class="help-triangle"></div>
+        <div class="help-rectangle">
+          <div class="help-close">&times;</div>
+          <div class="help-content">
+          Comienza escribiendo<br>un concepto
+          </div>
+        </div>
+        </div>
+      </div>
+        <input id="update-vis" type="submit" class="btn btn-primary btn-sm" value="Visualizar">
+        <div class="bubble-help not-so-small" id="list-bubble-help">
+          <button type="button" class="btn btn-default btn-sm examples">Ver Lista de Conceptos
+          </button>
+          <div class="help-bubble">
+          <div class="help-triangle"></div>
+          <div class="help-rectangle">
+            <div class="help-close">&times;</div>
+            <div class="help-content">
+            ...o elige un concepto<br>desde la lista
             </div>
-                <input id="update-vis" type="submit" class="btn btn-primary btn-sm" value="Visualizar">
-                <div class="bubble-help not-so-small" id="list-bubble-help">
-                  <button type="button" class="btn btn-default btn-sm examples">Ver Lista de Conceptos
-                  </button>
-                  <div class="help-bubble">
-                    <div class="help-triangle"></div>
-                    <div class="help-rectangle">
-                      <div class="help-content">
-                        ...o elige un concepto<br>desde la lista
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-            </form>
+          </div>
+          </div>
         </div>
-        <div id="map-and-info">
-            <div id="map-widget" class="map-widget">
-                <div class="bubble-help not-so-small" id="commune-bubble-help">
-                  <div id="map" class="map"></div>
-                  <div class="help-bubble">
-                    <div class="help-triangle"></div>
-                    <div class="help-rectangle">
-                      <div class="help-content">
-                        Selecciona una comuna coloreada para ver los ELAs<br class="portrait-only"> que mencionan al concepto elegido y sus fundamentos
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div id="info-widget">
-                <div id="info">
-                </div>
-            </div>
-        </div>
+        
+      </form>
     </div>
-    <hr>
-    <div id="fundaments-widget">
-        <div id="fundaments-nav" class="not-so-small truncated"></div>
-        <div id="contextual-help">
-            Escribe un concepto para visualizar los Encuentros Locales que lo mencionan, o elige uno desde la <a href="#" class="examples">Lista de Conceptos</a>
+    <div id="map-and-info">
+      <div id="map-widget" class="map-widget">
+        <div class="bubble-help not-so-small" id="commune-bubble-help">
+          <div id="map" class="map"></div>
+          <div class="help-bubble">
+          <div class="help-triangle"></div>
+          <div class="help-rectangle">
+            <div class="help-close">&times;</div>
+            <div class="help-content">
+            Selecciona una comuna coloreada para ver los ELAs<br class="portrait-only"> que mencionan al concepto elegido y sus fundamentos
+            </div>
+          </div>
+          </div>
         </div>
-        <div id="fundament-list" class="small">
+      </div>
+      <div id="info-widget">
+        <div id="info">
         </div>
+      </div>
     </div>
+  </div>
+  <hr>
+  <div id="fundaments-widget">
+    <div id="fundaments-nav" class="not-so-small truncated"></div>
+    <div id="contextual-help">
+      Escribe un concepto para visualizar los Encuentros Locales que lo mencionan, o elige uno desde la <a href="#" class="examples">Lista de Conceptos</a>
+    </div>
+    <div id="fundament-list" class="small">
+    </div>
+  </div>
 </div>
 </div>
 
 <div id="concepts-list-modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <!--<p style="font-size: 30vh;"> &#x1f431;</p>-->
-        <p>Elige un concepto constitucional, o escríbelo directamente en el cuadro de texto</p>
-        <div id="concepts-list">Cargando información...</div>
-    </div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <!--<p style="font-size: 30vh;"> &#x1f431;</p>-->
+    <p>Elige un concepto constitucional, o escríbelo directamente en el cuadro de texto</p>
+    <div id="concepts-list">Cargando información...</div>
+  </div>
 </div>
 
 <div id="help-modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>&#x1f431; Instrucciones</h2>
-        <p>Escribe un concepto constitucional en el campo de texto de la parte superior izquierda de la pantalla y presiona visualizar (o bien elige un concepto de entre la <a href="#" class="examples">Lista de Conceptos</a>). Después de elegir un concepto, podrás ver lo siguiente:</p>
-        <ul>
-            <li>En el mapa de Chile de la izquierda aparecerá una visualización de calor indicando los lugares donde se mencionó ese concepto.</li>
-            <li>A la derecha aparecerá un cuadro de información indicando un resumen de los Encuentros Locales Autoconvocados (ELAs) que mencionaron ese concepto.</li>
-            <li>En el mapa central aparecerán las comunas con colores que indican qué tan importante es el concepto para esa comuna *.</li>
-        </ul>
-        <p>Luego podrás hacer click en una comuna para ver el detalle de los ELAs que mencionaron el concepto, incluyendo información de los participantes, el nivel de acuerdo, y los fundamentos que se indicaron para ese concepto. Puedes también seguir un link para ver el acta completa de ese ELA en el sitio oficial del gobierno.</p>
-        <p>En cualquier momento puedes comenzar otra vez eligiendo un nuevo concepto constitucional para visualizar. Si tienes alguna duda escríbenos a <a href="mailto:constitucionabierta@gmail.com?Subject=Duda%20Explorador%20de%20Conceptos%20Constitucionales" target="_blank">constitucionabierta@gmail.com</a>.</p>
-        <p style="font-size:smaller">* La intensidad del color depende del porcentaje de ELAs que mencionaron ese concepto dentro de la comuna. Mientras más alto es el porcentaje, más oscuro es el color.</p>
-    </div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>&#x1f431; Instrucciones</h2>
+    <p>Escribe un concepto constitucional en el campo de texto de la parte superior izquierda de la pantalla y presiona visualizar (o bien elige un concepto de entre la <a href="#" class="examples">Lista de Conceptos</a>). Después de elegir un concepto, podrás ver lo siguiente:</p>
+    <ul>
+      <li>En el mapa de Chile de la izquierda aparecerá una visualización de calor indicando los lugares donde se mencionó ese concepto.</li>
+      <li>A la derecha aparecerá un cuadro de información indicando un resumen de los Encuentros Locales Autoconvocados (ELAs) que mencionaron ese concepto.</li>
+      <li>En el mapa central aparecerán las comunas con colores que indican qué tan importante es el concepto para esa comuna *.</li>
+    </ul>
+    <p>Luego podrás hacer click en una comuna para ver el detalle de los ELAs que mencionaron el concepto, incluyendo información de los participantes, el nivel de acuerdo, y los fundamentos que se indicaron para ese concepto. Puedes también seguir un link para ver el acta completa de ese ELA en el sitio oficial del gobierno.</p>
+    <p>En cualquier momento puedes comenzar otra vez eligiendo un nuevo concepto constitucional para visualizar. Si tienes alguna duda escríbenos a <a href="mailto:constitucionabierta@gmail.com?Subject=Duda%20Explorador%20de%20Conceptos%20Constitucionales" target="_blank">constitucionabierta@gmail.com</a>.</p>
+    <p style="font-size:smaller">* La intensidad del color depende del porcentaje de ELAs que mencionaron ese concepto dentro de la comuna. Mientras más alto es el porcentaje, más oscuro es el color.</p>
+  </div>
 </div>
 
 <div id="inexistent-concept-error" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        Oops, ese concepto no está en nuestra lista
-    </div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    Oops, ese concepto no está en nuestra lista
+  </div>
 </div>
 
 </body>

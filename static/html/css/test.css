@@ -332,3 +332,8 @@ hr {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* bubbles */
+#link-bubble-help .help-bubble {
+    left: -1.5em;
+}

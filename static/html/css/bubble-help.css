@@ -8,6 +8,8 @@
   position: absolute;
   display: none;
   width: 9999px;
+  opacity: .99;
+  z-index: 5996;
 }
 
 .help-triangle {
@@ -34,6 +36,20 @@
   background-color: LightCyan;
   z-index: 5997;
   padding: .2em .5em;
+}
+
+.help-close {
+  float: right;
+  font-size: large;
+  font-weight: bold;
+  color: cadetblue;
+  margin-left: .5em;
+  pointer-events: auto;
+}
+
+.help-close:hover {
+  color: black;
+  cursor: pointer;
 }
 
 .help-content {

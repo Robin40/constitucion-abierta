@@ -117,6 +117,26 @@ function hide_bubbles(bubblesTimers) {
     $('.help-bubble').hide();
 }
 
+function show_bubble(id) {
+    $(`#${id} .help-bubble`).show();
+}
+
+function hide_bubble(id) {
+    $(`#${id} .help-bubble`).hide();
+}
+
+function init_bubble(classes, html, bubbleId) {
+    $(`#${bubbleId}`).append(`<div class="help-bubble">
+        <div class="help-triangle"></div>
+        <div class="help-rectangle">
+            <div class="help-close">&times;</div>
+            <div class="help-content ${classes}">
+                ${html}
+            </div>
+        </div>
+    </div>`);
+}
+
 $(function () {
     const chile = L.latLng(-37.020664, -71.341087);
     //const santiago = L.latLng(-33.453289, -70.8189348);
@@ -131,7 +151,14 @@ $(function () {
     init_modal('concepts-list-modal', '.examples');
     init_modal('help-modal', '#help');
 
+    /* cold-start first-time help */
     _userUnderstandsCommunes = false;
+    _userUnderstandsLinks = false;
+
+    $(document).on('click', '.fundament-table a', function() {
+        hide_bubble('link-bubble-help');
+        _userUnderstandsLinks = true;
+    });
 
     /* bubble-help timed sequence */
     const bubbleSeq = [
@@ -140,6 +167,19 @@ $(function () {
            'help-bubble-help'];
     const bubblesTimers = bubbleSeq.map((id, i) =>
         setTimeout(() => $(`#${id} .help-bubble`).show(), i*2000));
+
+    /* bubble interactivity */
+    $(document).on('click', '.help-close', function() {
+        $(this).parent().parent().hide();
+    });
+
+    $(document).on('mouseenter', '.help-content', function() {
+        $(this).parent().parent().css('opacity', .5);
+    });
+
+    $(document).on('mouseleave', '.help-content', function() {
+        $(this).parent().parent().css('opacity', .99);
+    });
 
     /* about-us */
     $('#about-us').on('click', function() {

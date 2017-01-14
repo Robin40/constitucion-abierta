@@ -230,6 +230,18 @@ function choropleth_layer(locations) {
 
                 _userUnderstandsCommunes = true;
                 hide_bubbles();
+
+                if (!_userUnderstandsLinks) {
+                    $('.fundament-table a').first()
+                        .wrap(`<div class="bubble-help" id="link-bubble-help">
+                            </div>`);
+
+                    init_bubble('adaptable-large',
+                        'Este link te llevará al acta completa',
+                        'link-bubble-help');
+
+                    show_bubble('link-bubble-help');
+                }
             })
         );
     });
