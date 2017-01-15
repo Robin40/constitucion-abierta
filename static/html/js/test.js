@@ -153,7 +153,7 @@ $(function () {
 
     /* cold-start first-time help */
     _userUnderstandsCommunes = false;
-    _userUnderstandsLinks = false;
+    _userUnderstandsLinks = true;
 
     $(document).on('click', '.fundament-table a', function() {
         hide_bubble('link-bubble-help');
