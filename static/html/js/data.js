@@ -57,6 +57,11 @@ function capitalized_first(str) {
 const clean_concept = concept => capitalized_first(
 	concept.replace(/__/g, ', ').replace(/_/g, ' '));
 
+const filenamified_concept = concept => escape(concept.toLowerCase()
+	.replace(/ /g, '_').replace(/,/g, '__') /* underscorify */
+	.replace(/\./g, '___') /* avoid foo/../bar */
+	.normalize());
+
 function clean_concept_row(d) {
 	return {
 		idEla: d.idEla,
@@ -77,8 +82,8 @@ function clean_concepts_list_row(d) {
 const groupProp = R.compose(R.groupBy, R.prop);
 const indexProp = R.compose(R.indexBy, R.prop);
 
-const _concept = zipped_csv(`${data_}viz_conceptos.zip`)
-    .then(R.compose(groupProp('concept'), R.map(clean_concept_row)));
+/*const _concept = zipped_csv(`${data_}viz_conceptos.zip`)
+    .then(R.compose(groupProp('concept'), R.map(clean_concept_row)));*/
 
 const _ela = csv(`${data_}viz_elas.csv`)
     .then(R.compose(indexProp('idEla'), R.map(clean_ela_row)));
@@ -109,7 +114,9 @@ const tryProp = prop => obj => {
 }
 
 const data = {
-	concept: concept => _concept.then(tryProp(concept)),
+	concept: concept => 
+		csv(`${data_}concept/${filenamified_concept(concept)}.csv`)
+		.then(R.map(clean_concept_row)),
 	ela: idEla => _ela.then(tryProp(idEla)),
 	commune: name => _commune.then(tryProp(name)),
 	commune_by_id: id => _communeById.then(tryProp(id)),
