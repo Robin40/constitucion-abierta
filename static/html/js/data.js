@@ -62,8 +62,8 @@ const clean_concept = concept => capitalized_first(
 	concept.replace(/__/g, ', ').replace(/_/g, ' '));
 
 const filenamified_concept = concept => concept.toLowerCase()
-	.replace(/ /g, '_').replace(/,/g, '__') /* underscorify */
-	.replace(/\./g, '___') /* avoid foo/../bar */
+	.replace(/ /g, '_').replace(/,/g, '_') /* underscorify */
+	.replace(/\./g, '_') /* avoid foo/../bar */
 	.normalize();
 
 function clean_concept_row(d) {

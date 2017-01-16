@@ -259,7 +259,7 @@ body {
     float: left;
 }
 
-.m-wide, .wide {
+.narrow, .m-wide, .wide {
     display: none;
 }
 
@@ -276,6 +276,17 @@ body {
 
     .small {
         font-size: xx-small;
+    }
+
+    .strike-narrow {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    .narrow {
+        display: unset;
+        font-size: smaller;
+        color: gray;
     }
 }
 
@@ -407,7 +418,7 @@ body {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 99999; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 15vh; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
