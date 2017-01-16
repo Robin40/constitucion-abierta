@@ -7,7 +7,7 @@
 .help-bubble {
   position: absolute;
   display: none;
-  width: 9999px;
+  width: 200%;
   opacity: .99;
   z-index: 5996;
 }

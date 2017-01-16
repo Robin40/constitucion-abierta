@@ -322,8 +322,12 @@ body {
         font-size: small;
     }
 
-    ..wide {
+    .wide {
         display: unset;
+    }
+
+    .not-wide {
+        display: none;
     }
 }
 
@@ -452,7 +456,15 @@ body {
     cursor: pointer;
 }
 
+#help-modal {
+    text-align: justify;
+}
+
 /* bubbles */
+#commune-bubble-help .help-bubble {
+    width: 100%;
+}
+
 #link-bubble-help .help-bubble {
     left: -1.5em;
 }

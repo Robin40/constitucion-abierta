@@ -101,6 +101,7 @@ function init_switch(mapChile, map, mapId, divId) {
 
 function close_modal() {
     $('.modal').css('display', 'none');
+    restore_bubbles();
 }
 
 function init_modal(modalId, buttonSel) {
@@ -108,6 +109,7 @@ function init_modal(modalId, buttonSel) {
 
     $(buttonSel).on('click', function() {
         close_modal();
+        save_bubbles();
         $modal.css('display', 'block');
     });
 
@@ -127,12 +129,33 @@ function hide_bubbles(bubblesTimers) {
     $('.help-bubble').hide();
 }
 
+_savingBubbles = false;
+_$savedBubbles = $('empty');
+
 function show_bubble(id) {
-    $(`#${id} .help-bubble`).show();
+    const $bubble = $(`#${id} .help-bubble`);
+
+    if (_savingBubbles)
+        _$savedBubbles = _$savedBubbles.add($bubble);
+    else
+        $bubble.show();
 }
 
 function hide_bubble(id) {
     $(`#${id} .help-bubble`).hide();
+}
+
+function save_bubbles() {
+    _savingBubbles = true;
+    _$savedBubbles = $('.help-bubble').filter(function() {
+        return $(this).css('display') === 'block';
+    }).hide();
+}
+
+function restore_bubbles() {
+    _savingBubbles = false;
+    _$savedBubbles.show();
+    _$savedBubbles = $('empty');
 }
 
 function init_bubble(classes, html, bubbleId) {
@@ -191,7 +214,7 @@ $(function () {
            'list-bubble-help',
            'help-bubble-help'];
     const bubblesTimers = bubbleSeq.map((id, i) =>
-        setTimeout(() => $(`#${id} .help-bubble`).show(), i*2000));
+        setTimeout(() => show_bubble(id), i*2000));
 
     /* bubble interactivity */
     $(document).on('click', '.help-close', function() {
