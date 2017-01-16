@@ -63,6 +63,16 @@ function update_info(locations) {
     $('#fundament-list').empty();
 }
 
+function vis_lock() {
+    $('#update-vis').prop('disabled', true);
+    $('#loading').css('display', 'inline-block');
+}
+
+function vis_unlock() {
+    $('#update-vis').prop('disabled', false);
+    $('#loading').hide();
+}
+
 function update_vis(mapChile, map) {
     const concept = get_concept();
 
@@ -70,7 +80,7 @@ function update_vis(mapChile, map) {
         update_map(boolean_heatmap_layer, mapChile, locations),
         update_map(choropleth_layer, map, locations),
         update_info(locations)
-    ])).finally(_ => $('#update-vis').prop('disabled', false));
+    ])).finally(_ => vis_unlock());
 }
 
 function init_switch(mapChile, map, mapId, divId) {
@@ -137,6 +147,20 @@ function init_bubble(classes, html, bubbleId) {
     </div>`);
 }
 
+function init_bounce(text, divId) {
+    const $div = $(`#${divId}`);
+    $div.html(text.split('').map(c => `<span>${c}</span>`).join(''));
+    $div.prepend('<span>&#x1f431;</span>');
+
+    let counter = 0;
+    const $chars = $div.children();
+
+    setInterval(function () {
+        $chars.eq(counter).effect('bounce', {times: 1}, 500);
+        counter = counter+1 !== $chars.length ? counter+1 : 0;
+    }, 250);
+}
+
 $(function () {
     const chile = L.latLng(-37.020664, -71.341087);
     //const santiago = L.latLng(-33.453289, -70.8189348);
@@ -150,6 +174,7 @@ $(function () {
 
     init_modal('concepts-list-modal', '.examples');
     init_modal('help-modal', '#help');
+    //init_bounce('Cargando...', 'loading');
 
     /* cold-start first-time help */
     _userUnderstandsCommunes = false;
@@ -188,7 +213,7 @@ $(function () {
 
     /* visualize */
     $('#concept-search').on('submit', function() {
-        $('#update-vis').prop('disabled', true);
+        vis_lock();
         hide_bubbles(bubblesTimers);
         update_vis(mapChile, map);
     });

@@ -337,3 +337,13 @@ hr {
 #link-bubble-help .help-bubble {
     left: -1.5em;
 }
+
+/* bounce */
+
+#loading {
+    display: none;
+}
+
+.ui-effects-wrapper {
+    display : inline-block;
+}
