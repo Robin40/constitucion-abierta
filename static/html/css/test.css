@@ -1,3 +1,5 @@
+/* universal */
+
 .img-box img {
     max-width: 100%;
     max-height: 100%;
@@ -6,7 +8,7 @@
 p, h1, h2, div, span {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
-
+/*
 hr {
     display: block;
     -webkit-margin-before: 0.5em;
@@ -19,7 +21,19 @@ hr {
     margin-left: 0;
     margin-right: 0;
 }
+*/
 
+hr {
+    display: block;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    border-style: inset;
+    border-width: 1px;
+
+    margin-left: 0;
+    margin-right: 0;
+}
+/*
 #body {
     position: absolute;
     width: 98%;
@@ -27,6 +41,16 @@ hr {
     margin: 8px;
     display: flex;
     flex-direction: column;
+}
+*/
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
 }
 
 #nav {
@@ -83,8 +107,6 @@ hr {
 
 #concepts-widget {
     position: relative;
-    left: calc(20vh + 1vw);
-    width: calc(100vw - 20vh - 3vw);
     flex-shrink: 0;
 }
 
@@ -101,6 +123,34 @@ hr {
     margin: 0 1vw;
 }
 
+#info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+
+
+#concepts-list {
+    max-height: 70vh;
+}
+
+#concepts-table {
+    max-height: 70vh;
+    overflow-y: auto;
+    display: block;
+}
+
+#concepts-table td, #concepts-table th {
+    min-width: 12em;
+    padding: 0 .5em;
+    line-height: 2em;
+    border-right: 1px solid #ddd;
+}
+
+/* portrait */
+
 @media all and (orientation:portrait) {
     #map-and-info {
         display: flex;
@@ -113,6 +163,11 @@ hr {
         flex-direction: column;
     }
 
+    #info {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
     #info-widget {
         max-height: 15vh;
         display: flex;
@@ -122,6 +177,8 @@ hr {
     .info-group {
         display: flex;
         flex-direction: row;
+        flex-shrink: 0;
+        align-items: baseline;
     }
 
     .value {
@@ -132,6 +189,8 @@ hr {
         display: none;
     }
 }
+
+/* landscape */
 
 @media all and (orientation:landscape) {
     #map-and-info {
@@ -144,6 +203,10 @@ hr {
         height: 65vh;
         display: flex;
         flex-direction: column;
+    }
+
+    #info {
+        overflow-y: auto;
     }
 
     #info-widget {
@@ -175,13 +238,19 @@ hr {
 
 #info {
     height: 100%;
-    overflow-y: auto;
 }
+
+.attr {
+    font-weight: bold;
+}
+
+.value {
+    margin-left: .5em;
+}
+
 
 #fundaments-widget {
     position: relative;
-    left: calc(20vh + 1vw);
-    width: calc(100vw - 20vh - 3vw);
     /*height: 100%;*/
     overflow-y: auto;
 }
@@ -190,39 +259,17 @@ hr {
     float: left;
 }
 
-@media all and (min-width:1000px) {
-    .adaptable-large {
-        font-size: large;
-    }
-
-    .not-so-small {
-        font-size: medium;
-    }
-
-    .small {
-        font-size: small;
-    }
+.m-wide, .wide {
+    display: none;
 }
 
-@media all and (max-width:999px) {
-    .adaptable-large {
-        font-size: medium;
-    }
-
-    .not-so-small {
-        font-size: small;
-    }
-
-    .small {
-        font-size: x-small;
-    }
+.adaptable-large {
+    font-size: small;
 }
 
-@media all and (max-width:499px) {
-    .adaptable-large {
-        font-size: small;
-    }
+/* narrow */
 
+@media all and (max-width:549px) {
     .not-so-small {
         font-size: x-small;
     }
@@ -231,6 +278,75 @@ hr {
         font-size: xx-small;
     }
 }
+
+/* medium wide */
+
+@media all and (min-width:550px) {
+    .not-so-small {
+        font-size: small;
+    }
+
+    .small {
+        font-size: x-small;
+    }
+
+    .m-wide {
+        display: unset;
+    }
+
+    #concepts-widget, #fundaments-widget {
+        left: calc(20vh + 1vw);
+        width: calc(100vw - 20vh - 3vw);
+    }
+}
+
+/* wide screen */
+
+@media all and (min-width:1000px) {
+    .not-so-small {
+        font-size: medium;
+    }
+
+    .small {
+        font-size: small;
+    }
+
+    ..wide {
+        display: unset;
+    }
+}
+
+/* short screen */
+@media all and (max-height: 549px) {
+    hr {
+        display: none;
+    }
+}
+
+/* medium height screen */
+@media all and (min-height: 550px) {
+
+}
+
+/* tall screen */
+@media all and (min-height: 800px) {
+
+}
+
+/* medium screen */
+@media all and (min-width: 550px) and (min-height: 550px) {
+    .adaptable-large {
+        font-size: medium;
+    }
+}
+
+/* big screen */
+@media all and (min-width: 1000px) and (min-height: 800px) {
+    .adaptable-large {
+        font-size: large;
+    }
+}
+
 
 .fundament-table {
     width: 100%;
@@ -270,14 +386,6 @@ hr {
         width: 50%;
     }
 }*/
-
-.attr {
-    font-weight: bold;
-}
-
-.value {
-    
-}
 
 .ui-autocomplete {
     z-index: 9999 !important;

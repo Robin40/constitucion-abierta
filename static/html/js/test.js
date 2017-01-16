@@ -260,7 +260,7 @@ $(function () {
             concepts).sort().map(concept =>
                 `<a href="#" class="concept-link">${concept}</a>`).join('<br>');
 
-        $('#concepts-list').html(`<table><thead><tr>
+        $('#concepts-list').html(`<table id="concepts-table"><thead><tr>
             <th>Valores</th>
             <th>Derechos</th>
             <th>Deberes</th>
