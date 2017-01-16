@@ -63,6 +63,7 @@ body {
 #title {
     display: inline-block;
     font-size: large;
+    flex-shrink: 0;
 }
 
 .subtitle {
