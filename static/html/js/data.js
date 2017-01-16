@@ -2,8 +2,12 @@ const data_ = '/static/html/data/';
 
 function csv(file) {
 	return new Promise((resolve, reject) =>
-		Plotly.d3.csv(file, (error, json) =>
+		Plotly.d3.csv(file, (error, json) => 
 			error ? reject(error) : resolve(json)));
+}
+
+function accent_csv(file) {
+	return csv(file).catch(err => csv(escape(file)));
 }
 
 function json(file) {
@@ -57,10 +61,10 @@ function capitalized_first(str) {
 const clean_concept = concept => capitalized_first(
 	concept.replace(/__/g, ', ').replace(/_/g, ' '));
 
-const filenamified_concept = concept => escape(concept.toLowerCase()
+const filenamified_concept = concept => concept.toLowerCase()
 	.replace(/ /g, '_').replace(/,/g, '__') /* underscorify */
 	.replace(/\./g, '___') /* avoid foo/../bar */
-	.normalize());
+	.normalize();
 
 function clean_concept_row(d) {
 	return {
@@ -115,7 +119,7 @@ const tryProp = prop => obj => {
 
 const data = {
 	concept: concept => 
-		csv(`${data_}concept/${filenamified_concept(concept)}.csv`)
+		accent_csv(`${data_}concept/${filenamified_concept(concept)}.csv`)
 		.then(R.map(clean_concept_row)),
 	ela: idEla => _ela.then(tryProp(idEla)),
 	commune: name => _commune.then(tryProp(name)),
